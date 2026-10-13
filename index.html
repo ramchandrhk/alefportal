@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АлефПортал | AlephPortal - 14 Октября 2026</title>
+    <title>АлефПортал | AlephPortal - Международная Геополитическая Аналитика</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,908 +13,1542 @@
                 extend: {
                     colors: {
                         aleph: {
-                            bg: '#0a0d14',
-                            card: 'rgba(18, 24, 38, 0.7)',
-                            border: 'rgba(255, 255, 255, 0.08)',
-                            accent: '#3b82f6',
-                            gold: '#f59e0b',
-                            crimson: '#ef4444',
-                            emerald: '#10b981'
-                        }
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            accent: '#38bdf8',
+                            gold: '#fbbf24',
+                            emerald: '#10b981',
+                            rose: '#f43f5e'
+                        },
+                        darkbg: '#0b1120',
+                        darkcard: 'rgba(30, 41, 59, 0.7)',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif']
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        hebrew: ['Rubik', 'Segoe UI', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@700&display=swap');
-        
         body {
-            background-color: #0a0d14;
+            background-color: #0b1120;
             color: #f3f4f6;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
-
         .glass-panel {
-            background: rgba(18, 24, 38, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
-        .glass-card {
-            background: rgba(22, 30, 48, 0.6);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
-        .glass-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(59, 130, 246, 0.4);
-            box-shadow: 0 12px 24px -10px rgba(59, 130, 246, 0.25);
+        .glass-panel-hover:hover {
+            background: rgba(30, 41, 59, 0.85);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.1);
         }
-
-        .hebrew-logo {
-            font-family: 'Frank Ruhl Libre', serif;
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
         }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+        .ticker-move {
+            display: inline-block;
+            animation: ticker 35s linear infinite;
         }
-        ::-webkit-scrollbar-track {
-            background: #0a0d14;
+        .ticker-wrap:hover .ticker-move {
+            animation-play-state: paused;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #1f293d;
-            border-radius: 4px;
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #374151;
+        [dir="rtl"] .ticker-move {
+            animation: ticker-rtl 35s linear infinite;
         }
-
-        /* Pulse glow animation */
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
+        @keyframes ticker-rtl {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(50%, 0, 0); }
         }
-        .live-dot {
-            animation: pulse-glow 2s infinite ease-in-out;
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
         }
-
-        [dir="rtl"] .rtl-flip {
-            transform: scaleX(-1);
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(56, 189, 248, 0.3);
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(56, 189, 248, 0.6);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+<body class="min-h-screen flex flex-col antialiased">
 
-    <!-- Breaking News Banner -->
-    <div id="breaking-news-banner" class="bg-gradient-to-r from-red-900/90 via-red-600/90 to-amber-600/90 border-b border-red-500/30 text-white py-2 px-4 text-xs md:text-sm font-medium transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-            <div class="flex items-center gap-3 overflow-hidden">
-                <span class="bg-white text-red-700 font-bold px-2 py-0.5 rounded text-xs uppercase tracking-wider animate-pulse flex-shrink-0">
-                    <i class="fa-solid fa-bolt mr-1"></i> <span data-i18n="breaking">Срочно</span>
-                </span>
-                <p id="breaking-text" class="truncate cursor-pointer hover:underline" onclick="openArticle(1)">
-                    Иерусалим: Саммит Ближневосточного квартета 2026 согласовал исторический энергетический пакт
-                </p>
+    <!-- Top Live Ticker Bar -->
+    <div class="bg-slate-950 border-b border-slate-800 text-xs py-2 px-4 flex items-center justify-between relative z-40">
+        <div class="flex items-center space-x-2 shrink-0 pr-4 z-10 bg-slate-950">
+            <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+            </span>
+            <span class="font-bold tracking-wider text-rose-500 uppercase text-[10px]" id="lbl-live">LIVE ANALYTICS</span>
+        </div>
+        <div class="ticker-wrap flex-1 text-slate-300">
+            <div class="ticker-move text-xs font-mono" id="ticker-content">
+                <!-- Ticker content injected via JS -->
             </div>
-            <button onclick="dismissBreaking()" class="text-white/80 hover:text-white text-base px-2">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+        </div>
+        <div class="shrink-0 pl-4 text-slate-400 hidden sm:block text-[11px] font-mono" id="live-clock">
+            2026-10-14 02:04:00 UTC
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="sticky top-0 z-40 glass-panel border-b border-white/10">
+    <!-- Main Header / Nav -->
+    <header class="sticky top-0 z-30 glass-panel border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Logo & Branding -->
-                <div class="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer" onclick="resetFilters()">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-700 via-indigo-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-blue-900/40 border border-white/20">
-                        <span class="hebrew-logo text-3xl font-bold">א</span>
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="filterCategory('all')">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-600 via-sky-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-sky-500/20 ring-1 ring-white/20">
+                        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                     <div>
-                        <div class="flex items-center gap-2">
-                            <span class="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-blue-400">
-                                АлефПортал
-                            </span>
-                            <span class="flex items-center gap-1 bg-red-500/20 text-red-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-red-500/30">
-                                <span class="w-1.5 h-1.5 rounded-full bg-red-500 live-dot"></span> LIVE 2026
-                            </span>
+                        <div class="flex items-baseline space-x-1">
+                            <span class="text-2xl font-black tracking-wider text-white font-sans">אЛЕФ</span>
+                            <span class="text-2xl font-light text-sky-400">PORTAL</span>
                         </div>
-                        <p class="text-[11px] text-gray-400 font-medium tracking-wide" id="portal-tagline">
-                            Глобальный геополитический аналитический центр
-                        </p>
+                        <p class="text-[10px] text-slate-400 tracking-widest uppercase font-mono" id="site-tagline">Geopolitical Intelligence & Analysis</p>
                     </div>
                 </div>
 
-                <!-- Date & Language Selector -->
-                <div class="flex items-center gap-4 sm:gap-6">
-                    <div class="hidden lg:flex flex-col text-right rtl:text-left text-xs">
-                        <span class="text-gray-200 font-semibold flex items-center gap-1.5">
-                            <i class="fa-regular fa-calendar-days text-blue-400"></i>
-                            <span id="current-date-str">14 Октября 2026</span>
-                        </span>
-                        <span class="text-gray-400 text-[11px]" id="current-time-str">12:45 IDT | Иерусалим</span>
+                <!-- Desktop Navigation Items -->
+                <nav class="hidden lg:flex items-center space-x-1" id="desktop-nav">
+                    <!-- Nav generated via JS -->
+                </nav>
+
+                <!-- Right Toolbar (Search, Language, Mobile Toggle) -->
+                <div class="flex items-center space-x-3">
+                    
+                    <!-- Search Trigger -->
+                    <div class="relative">
+                        <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="Поиск аналитики..." 
+                               class="bg-slate-900/80 text-sm text-slate-200 rounded-full pl-9 pr-4 py-1.5 border border-slate-700/80 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 w-36 sm:w-48 transition-all">
+                        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
                     </div>
 
-                    <!-- Language Switcher Buttons -->
-                    <div class="flex bg-slate-900/80 p-1 rounded-xl border border-white/10 text-xs font-semibold">
-                        <button onclick="setLanguage('ru')" id="lang-ru" class="px-2.5 py-1.5 rounded-lg transition-all bg-blue-600 text-white shadow">RU</button>
-                        <button onclick="setLanguage('he')" id="lang-he" class="px-2.5 py-1.5 rounded-lg transition-all text-gray-400 hover:text-white">HE</button>
-                        <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1.5 rounded-lg transition-all text-gray-400 hover:text-white">EN</button>
+                    <!-- Language Switcher Dropdown -->
+                    <div class="relative">
+                        <select id="lang-select" onchange="changeLanguage(this.value)" 
+                                class="bg-slate-900 text-xs text-sky-400 font-semibold py-1.5 px-3 rounded-lg border border-sky-500/30 focus:outline-none cursor-pointer hover:border-sky-400">
+                            <option value="ru" selected>🇷🇺 RU</option>
+                            <option value="he">🇮🇱 HE</option>
+                            <option value="en">🇬🇧 EN</option>
+                        </select>
                     </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
-
             </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950/95 px-4 pt-3 pb-6 space-y-2">
+            <!-- Injected via JS -->
         </div>
     </header>
 
-    <!-- Country Filter & Ticker Bar -->
-    <div class="bg-slate-950/80 border-b border-white/5 py-3 px-4">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Interactive Dashboards Container -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             
-            <!-- Country Pills -->
-            <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar" id="country-filters">
-                <!-- Dynamically populated via JS -->
-            </div>
-
-            <!-- Search Bar -->
-            <div class="relative w-full md:w-72">
-                <input type="text" id="search-input" onkeyup="handleSearch()" 
-                    placeholder="Поиск по новостям и городам..." 
-                    data-i18n-ph="search_ph"
-                    class="w-full bg-slate-900/90 text-sm text-gray-200 placeholder-gray-500 pl-9 pr-4 py-2 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500 transition-all">
-                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-500 text-xs rtl:right-3 rtl:left-auto"></i>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Financial Widget Bar -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-        <div class="glass-panel rounded-2xl p-4 border border-white/10">
-            <div class="flex items-center justify-between mb-3 border-b border-white/5 pb-2">
-                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
-                    <i class="fa-solid fa-chart-line"></i> <span data-i18n="fin_title">Мировые Рынки & Котировки (14 Окт 2026)</span>
-                </div>
-                <button onclick="toggleConverterModal()" class="text-xs bg-blue-600/30 hover:bg-blue-600/50 text-blue-300 border border-blue-500/30 px-2.5 py-1 rounded-lg transition-all flex items-center gap-1.5">
-                    <i class="fa-solid fa-calculator"></i> <span data-i18n="calc_btn">Конвертер валют</span>
-                </button>
-            </div>
-
-            <!-- Rates Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs" id="financial-ticker-grid">
-                <!-- Populated by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8 flex-grow">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- Left & Center Column: Main News Stream (8 cols) -->
-            <section class="lg:col-span-8 space-y-6">
-                
-                <div class="flex items-center justify-between">
-                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-newspaper text-blue-500"></i>
-                        <span id="section-title" data-i18n="news_feed">Главная Лента Новостей</span>
-                    </h2>
-                    <div class="flex gap-2">
-                        <button onclick="filterBookmarksOnly()" id="bookmark-filter-btn" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 text-gray-300 border border-white/10 hover:border-amber-500/50 transition-all flex items-center gap-1">
-                            <i class="fa-solid fa-bookmark text-amber-400"></i> <span data-i18n="saved">Закладки</span> (<span id="bookmark-count">0</span>)
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Active Filters Bar (Hidden by default) -->
-                <div id="active-filter-badge" class="hidden flex items-center gap-2 bg-blue-950/60 border border-blue-500/30 p-2.5 rounded-xl text-xs text-blue-200">
-                    <span>Фильтр по региону: <strong id="active-filter-name" class="text-white"></strong></span>
-                    <button onclick="resetFilters()" class="ml-auto text-blue-400 hover:text-white">
-                        <i class="fa-solid fa-circle-xmark"></i> Сбросить
-                    </button>
-                </div>
-
-                <!-- Articles Grid -->
-                <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Cards dynamically rendered here -->
-                </div>
-
-                <!-- Empty State Message -->
-                <div id="empty-state" class="hidden text-center py-16 glass-panel rounded-2xl">
-                    <i class="fa-solid fa-folder-open text-4xl text-gray-600 mb-3"></i>
-                    <p class="text-gray-400 text-sm" data-i18n="no_results">По вашему запросу новостей не найдено.</p>
-                    <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-blue-600 text-white text-xs font-semibold rounded-xl hover:bg-blue-500 transition-all">
-                        Показать все новости
-                    </button>
-                </div>
-
-            </section>
-
-            <!-- Right Column: Widgets & Analytics (4 cols) -->
-            <aside class="lg:col-span-4 space-y-8">
-                
-                <!-- Knesset 2026 Poll Widget -->
-                <div class="glass-panel rounded-2xl p-5 border border-white/10">
-                    <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
-                        <h3 class="font-bold text-white text-sm flex items-center gap-2">
-                            <i class="fa-solid fa-landmark text-amber-400"></i>
-                            <span data-i18n="knesset_title">Кнессет 2026 — Прогноз (120 мест)</span>
-                        </h3>
-                        <span class="text-[10px] bg-amber-500/20 text-amber-300 font-semibold px-2 py-0.5 rounded">Опрос 14 Окт</span>
-                    </div>
-
-                    <p class="text-xs text-gray-400 mb-4" data-i18n="knesset_desc">
-                        Распределение мандатов по результатам усреднённых социологических опросов:
-                    </p>
-
-                    <!-- Mandates Progress Bars -->
-                    <div class="space-y-3" id="knesset-bars">
-                        <!-- Rendered by JS -->
-                    </div>
-
-                    <div class="mt-5 pt-3 border-t border-white/10 text-[11px] text-gray-400 flex justify-between items-center">
-                        <span>Большинство: 61 мандат</span>
-                        <span class="text-blue-400 hover:underline cursor-pointer" onclick="openKnessetDetails()">Подробнее &rarr;</span>
-                    </div>
-                </div>
-
-                <!-- Expert Analytics & Columnists -->
-                <div class="glass-panel rounded-2xl p-5 border border-white/10">
-                    <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
-                        <h3 class="font-bold text-white text-sm flex items-center gap-2">
-                            <i class="fa-solid fa-user-ninja text-emerald-400"></i>
-                            <span data-i18n="analytics_title">Аналитика & Мнения</span>
-                        </h3>
-                    </div>
-
-                    <div class="space-y-4" id="analytics-list">
-                        <!-- Rendered by JS -->
-                    </div>
-                </div>
-
-                <!-- Quick Telegram / Newsletter Join -->
-                <div class="glass-panel rounded-2xl p-5 border border-blue-500/30 bg-gradient-to-br from-blue-950/40 via-slate-900/60 to-indigo-950/40">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="w-10 h-10 rounded-xl bg-blue-600/30 border border-blue-400/30 flex items-center justify-center text-blue-400 text-lg">
-                            <i class="fa-solid fa-paper-plane"></i>
+            <!-- Widget 1: 2026 Knesset Political Balance Tracker -->
+            <div class="glass-panel rounded-2xl p-5 border border-slate-800 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4"/>
+                            </svg>
+                            <h3 class="font-bold text-slate-100 text-sm" id="widget-knesset-title">Кнессет 2026: Распределение Мандатов (120)</h3>
                         </div>
+                        <span class="text-[10px] bg-sky-950 text-sky-400 border border-sky-800 px-2 py-0.5 rounded-full font-mono">2026 UPDATE</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mb-4" id="widget-knesset-desc">Интерактивный прогноз коалиционных блоков по данным геополитического мониторинга АлефПортал.</p>
+                    
+                    <!-- Mandate Bar visual -->
+                    <div class="h-4 w-full bg-slate-800 rounded-full overflow-hidden flex mb-3 p-0.5 border border-slate-700">
+                        <div class="bg-blue-600 h-full rounded-l transition-all duration-500" style="width: 38%" title="Правящий блок (46)"></div>
+                        <div class="bg-emerald-500 h-full transition-all duration-500" style="width: 32%" title="Центроцентристы & Оппозиция (38)"></div>
+                        <div class="bg-amber-500 h-full transition-all duration-500" style="width: 18%" title="Региональные партии (22)"></div>
+                        <div class="bg-purple-600 h-full rounded-r transition-all duration-500" style="width: 12%" title="Другие / Нейтральные (14)"></div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                            <span class="text-slate-300">Правящий блок: <b class="text-white font-mono">46</b></span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                            <span class="text-slate-300">Оппозиция: <b class="text-white font-mono">38</b></span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                            <span class="text-slate-300">Региональные: <b class="text-white font-mono">22</b></span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+                            <span class="text-slate-300">Независимые: <b class="text-white font-mono">14</b></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget 2: Live Market & Energy Hub -->
+            <div class="glass-panel rounded-2xl p-5 border border-slate-800 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                            <h3 class="font-bold text-slate-100 text-sm" id="widget-market-title">Глобальные Индексы & Сырье</h3>
+                        </div>
+                        <span class="text-[10px] bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full font-mono">REALTIME</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block">Brent Oil</span>
+                            <div class="flex items-baseline justify-between mt-0.5">
+                                <span class="font-mono font-bold text-slate-100">$84.20</span>
+                                <span class="text-[10px] text-emerald-400 font-mono font-semibold">+1.85%</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block">Gold (XAU)</span>
+                            <div class="flex items-baseline justify-between mt-0.5">
+                                <span class="font-mono font-bold text-slate-100">$2,685.40</span>
+                                <span class="text-[10px] text-emerald-400 font-mono font-semibold">+0.62%</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block">USD / ILS</span>
+                            <div class="flex items-baseline justify-between mt-0.5">
+                                <span class="font-mono font-bold text-slate-100">₪3.72</span>
+                                <span class="text-[10px] text-rose-400 font-mono font-semibold">-0.14%</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block">EUR / USD</span>
+                            <div class="flex items-baseline justify-between mt-0.5">
+                                <span class="font-mono font-bold text-slate-100">$1.092</span>
+                                <span class="text-[10px] text-emerald-400 font-mono font-semibold">+0.28%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[11px] text-slate-400 text-center" id="market-footer-note">Данные обновляются в реальном времени с ведущих биржевых площадок.</p>
+            </div>
+
+            <!-- Widget 3: Quick Currency Converter -->
+            <div class="glass-panel rounded-2xl p-5 border border-slate-800 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <h3 class="font-bold text-slate-100 text-sm" id="widget-calc-title">Конвертер Региональных Валют</h3>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
                         <div>
-                            <h4 class="text-sm font-bold text-white" data-i18n="newsletter_title">Молнии АлефПортала</h4>
-                            <p class="text-[11px] text-gray-400" data-i18n="newsletter_desc">Подпишитесь на закрытый канал геополитики</p>
+                            <label class="text-[11px] text-slate-400 block mb-1" id="lbl-calc-amount">Сумма</label>
+                            <input type="number" id="calc-amount" value="1000" oninput="convertCurrency()" 
+                                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-sm font-mono text-white focus:outline-none focus:border-amber-500">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="text-[11px] text-slate-400 block mb-1">Из</label>
+                                <select id="calc-from" onchange="convertCurrency()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2 py-1.5 text-xs text-slate-200 focus:outline-none">
+                                    <option value="USD">USD ($)</option>
+                                    <option value="EUR">EUR (€)</option>
+                                    <option value="ILS">ILS (₪)</option>
+                                    <option value="RUB">RUB (₽)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[11px] text-slate-400 block mb-1">В</label>
+                                <select id="calc-to" onchange="convertCurrency()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2 py-1.5 text-xs text-slate-200 focus:outline-none">
+                                    <option value="ILS" selected>ILS (₪)</option>
+                                    <option value="USD">USD ($)</option>
+                                    <option value="EUR">EUR (€)</option>
+                                    <option value="RUB">RUB (₽)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-slate-950/80 rounded-xl border border-slate-800/80 text-center mt-2">
+                            <span class="text-xs text-slate-400 block" id="lbl-calc-result">Результат конвертации</span>
+                            <span id="calc-result" class="text-xl font-mono font-bold text-amber-400">3,720.00 ₪</span>
                         </div>
                     </div>
-                    <form onsubmit="subscribeNewsletter(event)" class="space-y-2">
-                        <input type="email" required placeholder="email@domain.com" class="w-full bg-slate-950/80 border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500">
-                        <button type="submit" class="w-full py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-xl transition-all shadow-lg shadow-blue-900/40">
-                            Подписаться
-                        </button>
-                    </form>
                 </div>
+            </div>
+        </section>
 
-            </aside>
+        <section class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <!-- Region Category Buttons -->
+            <div class="flex flex-wrap gap-2" id="category-buttons">
+                <!-- Rendered dynamically -->
+            </div>
 
-        </div>
+            <!-- Active Tag Badge Filter -->
+            <div id="active-filter-badge" class="hidden items-center space-x-2 bg-sky-950/80 border border-sky-500/30 px-3 py-1 rounded-full text-xs text-sky-300">
+                <span>Фильтр: <b id="filter-tag-name"></b></span>
+                <button onclick="clearTagFilter()" class="hover:text-white font-bold ml-1">&times;</button>
+            </div>
+        </section>
+
+        <section>
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-white flex items-center space-x-2" id="section-heading">
+                    <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                    </svg>
+                    <span>Аналитические Материалы</span>
+                </h2>
+                <span class="text-xs text-slate-400 font-mono" id="articles-count">Показано: 20 материалов</span>
+            </div>
+
+            <!-- Cards Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="articles-grid">
+                <!-- Dynamic cards injected via JS -->
+            </div>
+        </section>
+
     </main>
 
-    <!-- Modal 1: Article Viewer Modal -->
-    <div id="article-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-panel max-w-3xl w-full max-h-[90vh] rounded-2xl border border-white/20 overflow-hidden flex flex-col shadow-2xl">
+    <!-- Full-screen Article Modal -->
+    <div id="article-modal" class="fixed inset-0 z-50 hidden overflow-y-auto custom-scrollbar bg-slate-950/90 backdrop-blur-md p-4 sm:p-6 md:p-10">
+        <div class="max-w-4xl mx-auto glass-panel border border-slate-700/80 rounded-3xl p-6 sm:p-10 shadow-2xl relative my-8">
             
-            <!-- Modal Header -->
-            <div class="p-4 border-b border-white/10 flex items-center justify-between bg-slate-900/90">
-                <div class="flex items-center gap-2">
-                    <span id="modal-country-flag" class="text-xl"></span>
-                    <span id="modal-location" class="text-xs font-bold text-blue-400 uppercase tracking-wider"></span>
-                </div>
-                <button onclick="closeArticleModal()" class="text-gray-400 hover:text-white p-2 text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <!-- Category & Flag Header -->
+            <div class="flex items-center space-x-3 mb-4">
+                <span id="modal-flag" class="text-3xl"></span>
+                <span id="modal-category" class="text-xs uppercase font-bold tracking-widest text-sky-400 bg-sky-950/80 px-3 py-1 rounded-full border border-sky-800"></span>
+                <span id="modal-date" class="text-xs font-mono text-slate-400"></span>
             </div>
 
-            <!-- Modal Content (Scrollable) -->
-            <div class="p-6 overflow-y-auto space-y-5 text-gray-200">
-                <h2 id="modal-title" class="text-2xl font-extrabold text-white leading-snug"></h2>
-                
-                <div class="flex items-center justify-between text-xs text-gray-400 border-y border-white/10 py-2.5">
-                    <span id="modal-date"><i class="fa-regular fa-clock mr-1"></i> 14 Октября 2026</span>
-                    
-                    <!-- AI Audio Reader Player -->
-                    <button id="ai-audio-btn" onclick="toggleAIAudio()" class="bg-blue-600/20 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-full hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-volume-high" id="audio-icon"></i>
-                        <span id="audio-text" data-i18n="ai_listen">Слушать ИИ-озвучку</span>
+            <!-- Title -->
+            <h1 id="modal-title" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight mb-6"></h1>
+
+            <!-- Audio AI Narration Simulator -->
+            <div class="bg-slate-900/90 rounded-2xl p-4 border border-slate-800 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-3 w-full sm:w-auto">
+                    <button onclick="toggleAudio()" id="audio-btn" class="w-12 h-12 rounded-full bg-sky-500 hover:bg-sky-400 text-slate-950 flex items-center justify-center font-bold shadow-lg shadow-sky-500/30 shrink-0">
+                        <svg id="audio-icon-play" class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <svg id="audio-icon-pause" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                    <div>
+                        <span class="text-xs font-bold text-slate-200 block" id="audio-title">Аудио-саммари (AI Голос)</span>
+                        <span class="text-[11px] text-slate-400" id="audio-status">Готово к воспроизведению • ~2 мин</span>
+                    </div>
+                </div>
+                <div class="w-full sm:w-48 bg-slate-800 h-2 rounded-full overflow-hidden">
+                    <div id="audio-progress" class="bg-sky-400 h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- Full Article Content Body -->
+            <div id="modal-body" class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-4 text-base sm:text-lg border-b border-slate-800 pb-8 mb-8">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- Interactive Comment Section -->
+            <div class="space-y-6">
+                <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                    </svg>
+                    <span id="lbl-comments-title">Экспертные Обсуждения</span>
+                </h3>
+
+                <!-- Comment Input -->
+                <div class="flex gap-3">
+                    <input type="text" id="comment-input" placeholder="Оставить аналитический комментарий..." 
+                           class="flex-1 bg-slate-900 text-sm text-slate-200 rounded-xl px-4 py-3 border border-slate-700 focus:outline-none focus:border-sky-500">
+                    <button onclick="addComment()" class="bg-sky-600 hover:bg-sky-500 text-white font-semibold px-5 py-3 rounded-xl text-sm transition-colors">
+                        Отправить
                     </button>
                 </div>
 
-                <div id="modal-body" class="space-y-4 text-sm sm:text-base leading-relaxed text-gray-300">
-                    <!-- Body text inserted here -->
-                </div>
-
-                <!-- Interactive Comments Section -->
-                <div class="mt-8 pt-6 border-t border-white/10">
-                    <h3 class="font-bold text-white text-base mb-4 flex items-center gap-2">
-                        <i class="fa-regular fa-comments text-blue-400"></i>
-                        <span data-i18n="comments_title">Обсуждение и комментарии</span>
-                    </h3>
-
-                    <!-- Comments List -->
-                    <div id="comments-list" class="space-y-3 mb-4">
-                        <!-- Populated dynamically -->
-                    </div>
-
-                    <!-- Add Comment Form -->
-                    <div class="flex gap-2">
-                        <input type="text" id="new-comment-input" placeholder="Написать комментарий..." class="flex-grow bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500">
-                        <button onclick="addComment()" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-all">
-                            Отправить
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Modal 2: Currency Converter Modal -->
-    <div id="converter-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-panel max-w-md w-full rounded-2xl border border-white/20 p-6 shadow-2xl">
-            <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
-                <h3 class="font-bold text-white text-lg flex items-center gap-2">
-                    <i class="fa-solid fa-calculator text-amber-400"></i> Конвертер валют (14.10.2026)
-                </h3>
-                <button onclick="toggleConverterModal()" class="text-gray-400 hover:text-white">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <div class="space-y-4 text-xs">
-                <div>
-                    <label class="block text-gray-400 mb-1">Сумма:</label>
-                    <input type="number" id="calc-amount" value="1000" oninput="calculateConversion()" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2.5 text-base text-white font-bold focus:outline-none focus:border-blue-500">
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-gray-400 mb-1">Из:</label>
-                        <select id="calc-from" onchange="calculateConversion()" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-white font-medium focus:outline-none">
-                            <option value="ILS">🇮🇱 ILS (Шекель)</option>
-                            <option value="USD" selected>🇺🇸 USD (Доллар)</option>
-                            <option value="EUR">🇪🇺 EUR (Евро)</option>
-                            <option value="CNY">🇨🇳 CNY (Юань)</option>
-                            <option value="RUB">🇷🇺 RUB (Рубль)</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-gray-400 mb-1">В:</label>
-                        <select id="calc-to" onchange="calculateConversion()" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-white font-medium focus:outline-none">
-                            <option value="ILS" selected>🇮🇱 ILS (Шекель)</option>
-                            <option value="USD">🇺🇸 USD (Доллар)</option>
-                            <option value="EUR">🇪🇺 EUR (Евро)</option>
-                            <option value="CNY">🇨🇳 CNY (Юань)</option>
-                            <option value="RUB">🇷🇺 RUB (Рубль)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="p-4 bg-slate-900/90 rounded-xl border border-white/10 text-center mt-4">
-                    <span class="text-xs text-gray-400 block mb-1">Результат конвертации:</span>
-                    <span id="calc-result" class="text-2xl font-extrabold text-amber-400">365.00 ILS</span>
+                <!-- Existing Comments List -->
+                <div id="comments-list" class="space-y-3">
+                    <!-- Dynamic comments -->
                 </div>
             </div>
+
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="glass-panel border-t border-white/10 mt-12 py-8 text-xs text-gray-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-lg">
-                    א
+    <footer class="glass-panel border-t border-slate-800 mt-16 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center font-bold text-slate-950">א</div>
+                    <span class="text-lg font-bold text-white">АлефПортал</span>
                 </div>
-                <div>
-                    <p class="font-bold text-gray-200">АлефПортал (AlephPortal) © 2026</p>
-                    <p class="text-[11px] text-gray-500">Международный аналитический портал новостей и геополитики</p>
-                </div>
+                <p class="text-xs text-slate-400 leading-relaxed" id="footer-desc">
+                    Независимый геополитический портал, предоставляющий экспертный анализ международных событий, экономических тенденций и дипломатических процессов.
+                </p>
             </div>
 
-            <div class="flex items-center gap-6 text-gray-400">
-                <a href="#" onclick="alert('АлефПортал - версия 4.2 (Октябрь 2026)')" class="hover:text-white transition-all">О портале</a>
-                <a href="#" onclick="alert('Контакты редакции: redactor@alephportal.io')" class="hover:text-white transition-all">Редакция</a>
-                <a href="#" onclick="alert('Все данные актуальны на 14.10.2026')" class="hover:text-white transition-all">Конфиденциальность</a>
+            <div>
+                <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-3" id="footer-cat-heading">Региональные Секции</h4>
+                <ul class="space-y-2 text-xs" id="footer-region-list">
+                    <!-- Populated by JS -->
+                </ul>
             </div>
 
-            <div class="text-right">
-                <span class="px-2.5 py-1 rounded bg-slate-800 border border-white/10 text-gray-300 font-semibold">
-                    Все права защищены. <strong class="text-blue-400">AK</strong>
-                </span>
+            <div>
+                <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-3" id="footer-info-heading">Информация</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-sky-400 transition-colors">Методология Аналитики</a></li>
+                    <li><a href="#" class="hover:text-sky-400 transition-colors">Редакционный Совет</a></li>
+                    <li><a href="#" class="hover:text-sky-400 transition-colors">Пресс-центр</a></li>
+                    <li><a href="#" class="hover:text-sky-400 transition-colors">Политика Конфиденциальности</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-3">Подписка на дайджест</h4>
+                <p class="text-xs text-slate-400 mb-3">Еженедельная аналитическая выжимка для экспертов.</p>
+                <div class="flex space-x-2">
+                    <input type="email" placeholder="Email" class="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 flex-1 focus:outline-none focus:border-sky-500">
+                    <button class="bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs px-3 py-1.5 rounded-lg">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <p>© 2026 АлефПортал. Все права защищены. Разработчик: AK</p>
+            <div class="flex space-x-4">
+                <span class="hover:text-slate-400 cursor-pointer">SSL Encrypted</span>
+                <span>•</span>
+                <span class="hover:text-slate-400 cursor-pointer">Realtime Intelligence Feed</span>
             </div>
         </div>
     </footer>
 
     <script>
-        
-        // Comprehensive News Database (16 materials for Oct 14, 2026)
-        const articlesData = [
-            {
-                id: 1,
-                country: 'IL',
-                flag: '🇮🇱',
-                location: 'Иерусалим',
-                category: 'Дипломатия',
-                title: 'Иерусалим: Саммит Ближневосточного квартета 2026 согласовал исторический энергетический пакт',
-                snippet: 'Представители Израиля, США, Египта и ОАЭ подписали меморандум о создании объединённой водородной энергосети.',
-                body: 'В Иерусалиме завершился двухдневный закрытый саммит Ближневосточного квартета 2026 года. Главным итогом переговоров стало подписание соглашения о создании единой водородно-солнечной энергосистемы, объединяющей инфраструктуру Израиля, Иордании, Египта и ОАЭ. Проект обещает снизить стоимость электроэнергии в регионе на 28% к 2028 году.',
-                time: '12:30 IDT',
-                views: 1420,
-                isBreaking: true,
-                comments: [
-                    { author: 'Давид К.', text: 'Стратегический шаг для укрепления региональной стабильности.' },
-                    { author: 'Анна В.', text: 'Интересно, как будет устроена киберзащита этой сети.' }
-                ]
-            },
-            {
-                id: 2,
-                country: 'US',
-                flag: '🇺🇸',
-                location: 'Вашингтон',
-                category: 'Технологии',
-                title: 'Вашингтон: Конгресс США утвердил рамку регулирования автономного ИИ в оборонной сфере',
-                snippet: 'Законопроект обязывает сохранять прямое человеческое управление над принятием ключевых решений.',
-                body: 'Палата представителей и Сенат США пришли к двухпартийному соглашению по Акту о безопасности ИИ 2026 года. Новое законодательство жестко регламентирует применение нейросетей в стратегических сферах и вводит обязательный сертификационный аудит для всех генеративных систем военного назначения.',
-                time: '11:45 IDT',
-                views: 980,
-                comments: [
-                    { author: 'Mark_S', text: ' давно пора было ввести стандарты безопасности.' }
-                ]
-            },
-            {
-                id: 3,
-                country: 'CN',
-                flag: '🇨🇳',
-                location: 'Пекин',
-                category: 'Экономика',
-                title: 'Пекин: Китай презентовал первый коммерческий термоядерный реактор «Шеньчжоу-9»',
-                snippet: 'Завод в Гуанчжоу начнет снабжать электроэнергией промышленный кластер уже в ноябре.',
-                body: 'Китайская корпорация ядерной энергетики объявила о завершении финальных испытаний управляемого термоядерного реактора нового поколения. По заявлениям инженеров, установка выдаёт стабильные 1.5 ГВт мощности при минимальном уровне радиоактивных отходов.',
-                time: '10:15 IDT',
-                views: 2100,
-                comments: []
-            },
-            {
-                id: 4,
-                country: 'EU',
-                flag: '🇪🇺',
-                location: 'Брюссель',
-                category: 'Политика',
-                title: 'Брюссель: Евросоюз принял Пакт об экологической логистике и искусственном интеллекте',
-                snippet: 'Все грузоперевозки внутри ЕС должны быть оптимизированы единым европейским алгоритмом.',
-                body: 'Европарламент большинством голосов утвердил директиву Digital Carbon 2026. Главная цель — сокращение вредных выбросов транспорта на 35% за счет смарт-маршрутизации и автоматического распределения хабов.',
-                time: '09:50 IDT',
-                views: 740,
-                comments: []
-            },
-            {
-                id: 5,
-                country: 'RU',
-                flag: '🇷🇺',
-                location: 'Москва',
-                category: 'Космос',
-                title: 'Москва: Роскосмос и партнеры по БРИКС утвердили план орбитальной станции 2027',
-                snippet: 'Первый модульный сегмент будет запущен с космодрома Восточный в марте следующего года.',
-                body: 'В Москве состоялась встреча глав космических агентств стран БРИКС+. Участники утвердили финальные чертежи международной исследовательской станции и согласовали состав первых экипажей.',
-                time: '09:20 IDT',
-                views: 1150,
-                comments: []
-            },
-            {
-                id: 6,
-                country: 'IL',
-                flag: '🇮🇱',
-                location: 'Тель-Авив',
-                category: 'Стартапы',
-                title: 'Тель-Авив: Израильский киберстартап привлечет $300 млн на развитие защиты от квантовых атак',
-                snippet: 'Инвесторами выступили ведущие венчурные фонды Кремниевой долины и Токио.',
-                body: 'Сектор High-Tech Израиля демонстрирует рекорды: компания PostQuant Inc., специализирующаяся на постквантовом шифровании данных, объявила об успешном закрытии раунда финансирования Серии C.',
-                time: '08:40 IDT',
-                views: 1890,
-                comments: []
-            },
-            {
-                id: 7,
-                country: 'US',
-                flag: '🇺🇸',
-                location: 'Нью-Йорк',
-                category: 'Финансы',
-                title: 'Нью-Йорк: Биржа NYSE фиксирует рост индекса квантовых компаний на 14%',
-                snippet: 'Уолл-стрит реагирует на публикацию квартальных отчетов ведущих технологических гигантов.',
-                body: 'Инвесторы проявляют высокий оптимизм в отношении коммерциализации квантовых вычислений. Курс акций компаний-разработчиков показал взрывной рост сразу после открытия торгов.',
-                time: '08:10 IDT',
-                views: 870,
-                comments: []
-            },
-            {
-                id: 8,
-                country: 'IL',
-                flag: '🇮🇱',
-                location: 'Хайфа',
-                category: 'Наука',
-                title: 'Хайфа: Ученые Техниона создали биоматериал для мгновенного заживления тканей',
-                snippet: 'Клинические испытания с участием 500 пациентов показали 99% эффективную регенерацию.',
-                body: 'Исследовательская группа из Техниона в Хайфе представила гидрогель на основе модифицированных пептидов, ускоряющий заживление глубоких ранений в три раза по сравнению с существующими аналогами.',
-                time: '07:30 IDT',
-                views: 1560,
-                comments: []
-            },
-            {
-                id: 9,
-                country: 'CN',
-                flag: '🇨🇳',
-                location: 'Шанхай',
-                category: 'Торговля',
-                title: 'Шанхай: Порт перешел на полностью беспилотную обработку контейнеровозов',
-                snippet: 'Автоматизированные краны и нейросети сократили время разгрузки судов до 4 часов.',
-                body: 'Шанхайский глубоководный порт завершил финальный этап цифровизации. Теперь процесс от погрузки на судно до таможенного оформления контролируется единой нейросетью без участия человека.',
-                time: '07:00 IDT',
-                views: 920,
-                comments: []
-            },
-            {
-                id: 10,
-                country: 'EU',
-                flag: '🇪🇺',
-                location: 'Страсбург',
-                category: 'Энергетика',
-                title: 'Страсбург: Парламент ЕС утвердил новые субсидии для альтернативной энергетики',
-                snippet: 'Общий объем фонда финансовой поддержки составит €120 миллиардов.',
-                body: 'Европейские законодатели приняли решение перенаправить часть налоговых поступлений на финансирование геологических исследований и строительство глубоких геотермальных электростанций.',
-                time: '06:30 IDT',
-                views: 610,
-                comments: []
-            },
-            {
-                id: 11,
-                country: 'RU',
-                flag: '🇷🇺',
-                location: 'Санкт-Петербург',
-                category: 'Инфраструктура',
-                title: 'Санкт-Петербург: Открыт новый логистический терминал Высокоскоростной Магистрали',
-                snippet: 'Время в пути между столицами сокращено до рекордных 2 часов 15 минут.',
-                body: 'Запуск коммерческих рейсов по ВСМ показал высокую загруженность. Новый вокзальный комплекс оборудован современными смарт-системами контроля пассажиропотока.',
-                time: '06:00 IDT',
-                views: 1040,
-                comments: []
-            },
-            {
-                id: 12,
-                country: 'IL',
-                flag: '🇮🇱',
-                location: 'Эйлат',
-                category: 'Экология',
-                title: 'Эйлат: Запущен опреснительный комплекс на базе солнечной энергии нового типа',
-                snippet: 'Проект обеспечивает чистой водой весь юг страны с нулевым углеродным следом.',
-                body: 'В Эйлате состоялся торжественный запуск крупнейшей в регионе экологически чистой опреснительной станции. Инновационная мембранная система позволяет производить 100 млн кубометров питьевой воды в год.',
-                time: '05:30 IDT',
-                views: 1320,
-                comments: []
-            },
-            {
-                id: 13,
-                country: 'US',
-                flag: '🇺🇸',
-                location: 'Сан-Франциско',
-                category: 'ИИ',
-                title: 'Сан-Франциско: Лаборатории презентовали нейросеть с автономным научным мышлением',
-                snippet: 'Модель самостоятельно сгенерировала и проверила 12 гипотез в области молекулярной биологии.',
-                body: 'Новое поколение искусственного интеллекта показало способность планировать и проводить виртуальные химические эксперименты без подсказок ученых.',
-                time: '05:00 IDT',
-                views: 2450,
-                comments: []
-            },
-            {
-                id: 14,
-                country: 'CN',
-                flag: '🇨🇳',
-                location: 'Пекин',
-                category: 'Дипломатия',
-                title: 'Пекин: МИД КНР заявил о готовности выступить гарантом по азиатскому торговому пакту',
-                snippet: 'Представители 15 стран подписали соглашение о снижении пошлин на полупроводники.',
-                body: 'Переговоры в Пекине завершились успешным подписанием Азиатско-Тихоокеанского пакта по свободной торговле компонентами микроэлектроники.',
-                time: '04:30 IDT',
-                views: 780,
-                comments: []
-            },
-            {
-                id: 15,
-                country: 'EU',
-                flag: '🇪🇺',
-                location: 'Франкфурт',
-                category: 'Банки',
-                title: 'Франкфурт: ЕЦБ завершил пилотное тестирование цифрового Евро (Digital EUR)',
-                snippet: 'Официальный запуск национальной цифровой валюты назначен на первый квартал 2027 года.',
-                body: 'Европейский центральный банк подвел итоги испытаний CBDC. В тестировании приняли участие более 50 коммерческих банков и свыше 100 тысяч розничных пользователей.',
-                time: '04:00 IDT',
-                views: 1120,
-                comments: []
-            },
-            {
-                id: 16,
-                country: 'RU',
-                flag: '🇷🇺',
-                location: 'Мурманск',
-                category: 'Арктика',
-                title: 'Мурманск: Атомный ледокол «Арктика-2» завершил рекордный провод каравана судов',
-                snippet: 'Северный морской путь демонстрирует круглогодичную навигацию и рост грузопотока.',
-                body: 'Судно нового поколения провело караван из восьми тяжелых контейнеровозов через льды толщиной более 3 метров без задержек в графике.',
-                time: '03:30 IDT',
-                views: 890,
-                comments: []
-            }
-        ];
-
-        // Financial Data (Oct 14, 2026)
-        const marketRates = [
-            { symbol: 'BRENT', name: 'Нефть Brent', price: '$78.45', change: '+1.2%', up: true },
-            { symbol: 'GOLD', name: 'Золото', price: '$2,680.10', change: '+0.5%', up: true },
-            { symbol: 'USD/ILS', name: 'USD/ILS', price: '3.65', change: '-0.3%', up: false },
-            { symbol: 'EUR/USD', name: 'EUR/USD', price: '1.092', change: '+0.1%', up: true },
-            { symbol: 'USD/CNY', name: 'USD/CNY', price: '7.12', change: '0.0%', up: true },
-            { symbol: 'USD/RUB', name: 'USD/RUB', price: '96.20', change: '-0.4%', up: false }
-        ];
-
-        // Knesset 2026 Mandates Data
-        const knessetPolls = [
-            { party: 'Ликуд (Беньямин Нетаниягу)', seats: 28, color: 'bg-blue-500', pct: 23.3 },
-            { party: 'Государственный лагерь (Бени Ганц)', seats: 24, color: 'bg-indigo-500', pct: 20.0 },
-            { party: 'Еш Атид (Яир Лапид)', seats: 18, color: 'bg-amber-500', pct: 15.0 },
-            { party: 'НДИ (Авигдор Либерман)', seats: 14, color: 'bg-cyan-500', pct: 11.6 },
-            { party: 'Религиозный блок (ШАС/Яхадут а-Тора)', seats: 16, color: 'bg-emerald-500', pct: 13.3 },
-            { party: 'Демократы / Мерец-Авода', seats: 11, color: 'bg-red-500', pct: 9.1 },
-            { party: 'Арабские партии (ХАДАШ-ТААЛЬ/РААМ)', seats: 9, color: 'bg-purple-500', pct: 7.5 }
-        ];
-
-        // Columnists & Analysts
-        const analyticsData = [
-            {
-                author: 'Д-р Элиэзер Рабинович',
-                role: 'Ведущий геополитик Хайфского института',
-                title: 'Новая Архитектура Безопасности Ближнего Востока 2026: Анализ Иерусалимского Пакта',
-                avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80'
-            },
-            {
-                author: 'Сара Чен',
-                role: 'Старший обозреватель Bloomberg Tech',
-                title: 'Гонка квантовых технологий: Почему 2026 год стал переломным для мировых рынков',
-                avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=80'
-            }
-        ];
-
-        // App State
+        // --- DATA & APPLICATION STATE ---
         let currentLang = 'ru';
-        let activeCountryFilter = 'ALL';
+        let currentCategory = 'all';
+        let currentTagFilter = null;
         let searchQuery = '';
-        let bookmarkedIds = JSON.parse(localStorage.getItem('aleph_bookmarks') || '[]');
-        let currentActiveArticleId = null;
+        let activeArticle = null;
         let isAudioPlaying = false;
+        let audioInterval = null;
 
-        const translations = {
-            ru: {
-                breaking: 'Срочно',
-                portal_tagline: 'Глобальный геополитический аналитический центр',
-                fin_title: 'Мировые Рынки & Котировки (14 Окт 2026)',
-                calc_btn: 'Конвертер валют',
-                news_feed: 'Главная Лента Новостей',
-                saved: 'Закладки',
-                no_results: 'По вашему запросу новостей не найдено.',
-                knesset_title: 'Кнессет 2026 — Прогноз (120 мест)',
-                knesset_desc: 'Распределение мандатов по результатам усреднённых социологических опросов:',
-                analytics_title: 'Аналитика & Мнения',
-                newsletter_title: 'Молнии АлефПортала',
-                newsletter_desc: 'Подпишитесь на закрытый канал геополитики',
-                ai_listen: 'Слушать ИИ-озвучку',
-                comments_title: 'Обсуждение и комментарии',
-                search_ph: 'Поиск по новостям и городам...'
+        // Categories structure - STRICT REQUIREMENT: RUSSIA IS THIRD (Index 2)
+        const categories = [
+            { id: 'israel', icon: '🇮🇱', ru: 'Израиль & Ближний Восток', he: 'ישראל והמזרח התיכון', en: 'Israel & Middle East' },
+            { id: 'usa', icon: '🇺🇸', ru: 'США & Америка', he: 'ארה"ב ואמריקה', en: 'USA & America' },
+            { id: 'russia', icon: '🇷🇺', ru: 'Россия & Евразия', he: 'רוסיה ואירואסיה', en: 'Russia & Eurasia' },
+            { id: 'china', icon: '🇨🇳', ru: 'Китай & АТР', he: 'סין ואסיה-פסיפיק', en: 'China & Asia-Pacific' },
+            { id: 'europe', icon: '🇪🇺', ru: 'ЕС & Европа', he: 'האיחוד האירופי ואירופה', en: 'EU & Europe' }
+        ];
+
+        // 20 Long-form Geopolitical Articles (>500 chars each)
+        const articles = [
+            // --- ISRAEL & MIDDLE EAST (4 articles) ---
+            {
+                id: 101,
+                regionId: 'israel',
+                flag: '🇮🇱',
+                date: '2026-10-14',
+                views: 1420,
+                tags: ['Безопасность', 'Дипломатия', 'Инновации'],
+                title: {
+                    ru: 'Стратегический баланс на Ближнем Востоке: Интеграция систем безопасности нового поколения',
+                    he: 'המאזן הסטרטגי במזרח התיכון: שילוב מערכות ביטחון מתקדמות',
+                    en: 'Strategic Balance in the Middle East: Integration of Next-Gen Defense Architectures'
+                },
+                snippet: {
+                    ru: 'Развертывание многоуровневых лазерных комплексов и ИИ-аналитики кардинально меняет архитектуру региональной обороны...',
+                    he: 'פריסת מערכות לייזר רב-שכבתיות וניתוח בינה מלאכותית משנה מקצה לקצה את ארכיטקטורת ההגנה האזורית...',
+                    en: 'Deployment of multi-layered laser systems and AI analytics is fundamentally transforming regional defense policy...'
+                },
+                content: {
+                    ru: `Ближневосточный регион переживает масштабный технологический сдвиг в сфере обеспечения национальной и региональной безопасности. Переход на инновационные эшелонированные системы перехвата, включая лазерные комплексы высокой мощности и автономные алгоритмы раннего предупреждения, меняет традиционную экономику противовоздушной обороны. 
+
+Эксперты АлефПортал отмечают, что ключевым фактором стабильности становится не только количество перехватчиков, но и скорость обработки данных разведки в реальном времени. Военно-техническое сотрудничество со странами региона, подписавшими Соглашения Авраама, выходит на уровень совместных ситуационных центров и интеграции радаров общего обнаружения.
+
+Вместе с тем дипломатические треки ориентированы на создание устойчивых транспортных и энергетических коридоров, соединяющих Персидский залив с европейскими рынками через территорию Средиземноморья. Это укрепляет геоэкономический фундамент региона и создает долгосрочные стимулы для деэскалации.`,
+                    he: `אזור המזרח התיכון חווה תמורה טכנולוגית נרחבת בתחום הביטחון הלאומי והאזורי. מעבר למערכות יירוט רב-שכבתיות מתקדמות, כולל מערכות לייזר בעוצמה גבוהה ואלגוריתמים אוטונומיים לגילוי מוקדם, משנה את הכלכלה המסורתית של הגנה אווירית.
+
+מומחי אלףפורטל מציינים כי הגורם המרכזי ליציבות אינו רק מספר המיירטים, אלא מהירות עיבוד נתוני המודיעין בזמן אמת. השיתוף הפעולה הביטחוני-טכנולוגי עם מדינות האזור שנחתמו עמן הסכמי אברהם עובר לדרגה של מרכזי שליטה משותפים ושילוב מכ"מים.
+
+במקביל, הערוצים הדיפלומטיים מתמקדים ביצירת מסדרונות תחבורה ואנרגיה יציבים המחברים את המפרץ הפרסי לשווקים האירופיים דרך הים התיכון. אלה מחזקים את התשתית הגיאו-כלכלית של האזור ומייצרים תמריצים ארוכי טווח להרגעה.`,
+                    en: `The Middle East is undergoing a massive technological shift in national and regional security frameworks. Transitioning to advanced layered interception architecture, including high-energy laser technology and autonomous early warning algorithms, is restructuring defense economics.
+
+AlephPortal analysts highlight that operational stability now relies heavily on real-time intelligence synthesis rather than traditional inventory scale. Defense-tech cooperation with Abraham Accords signatories is advancing toward unified situational awareness hubs and integrated radar networks.
+
+Concurrently, diplomatic channels are focused on engineering resilient transport and energy trade corridors connecting the Gulf region directly to European trade hubs through the Mediterranean. This bolsters long-term geo-economic integration and mutual stability incentives.`
+                }
             },
-            he: {
-                breaking: 'מבזק',
-                portal_tagline: 'מרכז ניתוח גיאופוליטי גלובלי',
-                fin_title: 'שווקים עולמיים ושערים (14 באוקטובר 2026)',
-                calc_btn: 'מחשבון המרת מט"ח',
-                news_feed: 'עדכוני חדשות מרכזיים',
-                saved: 'סימניות',
-                no_results: 'לא נמצאו חדשות לפי התאמה זו.',
-                knesset_title: 'תחזית הכנסת 2026 (120 מושבים)',
-                knesset_desc: 'חלוקת המנדטים לפי ממוצע הסקרים הציבוריים:',
-                analytics_title: 'ניתוח ודעות מומחים',
-                newsletter_title: 'מבזקי אלף-פורטל',
-                newsletter_desc: 'הירשמו לערוץ הגיאופוליטי הבלעדי',
-                ai_listen: 'השמעת טקסט ב-AI',
-                comments_title: 'דיונים ותגובות',
-                search_ph: 'חיפוש חדשות וערים...'
+            {
+                id: 102,
+                regionId: 'israel',
+                flag: '🇮🇱',
+                date: '2026-10-12',
+                views: 980,
+                tags: ['Экономика', 'Энергетика'],
+                title: {
+                    ru: 'Восточносредиземноморский газовый хаб: Экспортные перспективы 2026–2030',
+                    he: 'מרכז הגז של מזרח הים התיכון: תחזית יצוא 2026–2030',
+                    en: 'Eastern Mediterranean Gas Hub: Export Outlook 2026–2030'
+                },
+                snippet: {
+                    ru: 'Расширение мощности шельфовых месторождений и новые СПГ-терминалы укрепляют роль региона как ключевого поставщика Европы...',
+                    he: 'הרחבת קיבולת שדות הגז והקמת מסופי גז נוזלי מחזקים את מעמד האזור כספק מרכזי לאירופה...',
+                    en: 'Expanding offshore field capacities and new LNG terminals reinforce the region as a primary energy supplier to Europe...'
+                },
+                content: {
+                    ru: `Разработка морских месторождений природного газа в Восточном Средиземноморье достигла нового этапа зрелости. Ввод в эксплуатацию дополнительных добывающих платформ и модернайзерских компрессорных станций позволяет увеличить объемы поставок в Египет и Иорданию, а также нарастить сжижение газа для отправки на европейские терминалы.
+
+Анализ энергетического сектора показывает, что спрос на чистый природный газ в Южной и Центральной Европе остается высоким в контексте энергоперехода. Страны региона активно договариваются об унификации экологических стандартов и безопасной эксплуатации подводных трубопроводов.
+
+Геополитическое значение этих ресурсов выходит за рамки экономики: совместная инфраструктура создает прочный каркас региональной взаимозависимости, сдерживая риски эскалации конфликтов и привлекая глобальные прямые инвестиции.`,
+                    he: `פיתוח שדות הגז הטבעי בים התיכון המזרחי הגיע לדרגת בגרות חדשה. הפעלת אסדות קידוח נוספות ותחנות דחיסה מתקדמות מאפשרת להגדיל את היקפי האספקה למצרים וירדן, לצד הגדלת הנזלת הגז למשלוח למסופים באירופה.
+
+ניתוח מגזר האנרגיה מראה כי הביקוש לגז טבעי נקי בדרום ומרכז אירופה נותר גבוה בהקשר של מעבר האנרגיה. מדינות האזור פועלות לאיחוד תקנים סביבתיים ולתפעול בטוח של צינורות תת-ימיים.
+
+החשיבות הגיאופוליטית של משאבים אלה חורגת מעבר לכלכלה: התשתית המשותפת יוצרת שלד איתן של תלות הדדית אזורית, הממתן סיכוני הסלמה ומושך השקעות זרות ישירות.`,
+                    en: `The development of offshore natural gas fields in the Eastern Mediterranean has matured significantly. Commissioning additional extraction platforms and upgraded compression facilities enables elevated output to regional partners and expanded LNG liquefaction for European export destinations.
+
+Energy market analysis confirms that baseline demand for transition-fuel natural gas across Central and Southern Europe remains robust. Mediterranean partners are aligning environmental protocols and submarine pipeline integrity frameworks.
+
+The geopolitical significance of these natural reserves transcends trade volume: shared critical infrastructure creates structural economic interdependence, anchoring stability and attracting long-term infrastructure investment.`
+                }
             },
-            en: {
-                breaking: 'Breaking',
-                portal_tagline: 'Global Geopolitical Intelligence Hub',
-                fin_title: 'Global Markets & Quotes (Oct 14, 2026)',
-                calc_btn: 'Currency Converter',
-                news_feed: 'Main Intelligence Stream',
-                saved: 'Bookmarks',
-                no_results: 'No articles matched your filter or search query.',
-                knesset_title: 'Knesset 2026 Projection (120 Seats)',
-                knesset_desc: 'Mandate distribution based on aggregated October polls:',
-                analytics_title: 'Analytics & Columns',
-                newsletter_title: 'AlephPortal Direct',
-                newsletter_desc: 'Subscribe to exclusive geopolitical insights',
-                ai_listen: 'Listen AI Voice',
-                comments_title: 'Comments & Discussion',
-                search_ph: 'Search news and locations...'
+            {
+                id: 103,
+                regionId: 'israel',
+                flag: '🇮🇱',
+                date: '2026-10-10',
+                views: 1105,
+                tags: ['Технологии', 'Кибербезопасность'],
+                title: {
+                    ru: 'Киберщит нации: Защита критической инфраструктуры от ИИ-атак',
+                    he: 'מגן הסייבר הלאומי: הגנת תשתיות קריטיות מפני מתקפות בינה מלאכותית',
+                    en: 'National Cyber Shield: Safeguarding Critical Infrastructure Against AI Threats'
+                },
+                snippet: {
+                    ru: 'Внедрение автономных ИИ-агентов защиты позволяет нейтрализовать угрозы в энергетических и финансовых сетях за миллисекунды...',
+                    he: 'שילוב סוכני הגנה אוטונומיים של בינה מלאכותית מאפשר לנטרל איומים ברשתות אנרגיה ופיננסים בשברירי שנייה...',
+                    en: 'Deploying autonomous AI defensive agents enables real-time threat mitigation across financial and energy grids within milliseconds...'
+                },
+                content: {
+                    ru: `Рост сложности кибератак, использующих генерируемый ИИ вредоносный код, потребовал кардинальной перестройки национальных центров кибербезопасности. Новая концепция проактивного «киберщита» основана на постоянном моделировании угроз и автоматическом изолировании поврежденных узлов сети.
+
+Частно-государственное партнерство в сфере технологических стартапов позволило запустить систему мгновенного обмена данными об инцидентах между банками, операторами связи и энергетическими компаниями. Это снизило время реакции на аномалии до миллисекунд.
+
+Международные партнеры рассматривают эту модель как эталон для защиты критической инфраструктуры в условиях нарастающей гибридной напряженности во всем мире.`,
+                    he: `העלייה במורכבות מתקפות הסייבר המבוססות על קוד זדוני המיוצר על ידי בינה מלאכותית דרשה ארגון מחדש של מרכזי הסייבר הלאומיים. התפיסה החדשה של "מגן סייבר" אקטיבי מבוססת על סימולציה מתמדת של איומים ובידוד אוטומטי של רכיבי רשת שנפגעו.
+
+שותפות ציבורית-פרטית עם חברות הזנק טכנולוגיות איפשרה להפעיל מערכת לשיתוף מידע מיידי על אירועים בין בנקים, חברות תקשורת וחברות אנרגיה. דבר זה הפחית את זמן התגובה לאנומליות לשברירי שנייה.
+
+שותפים בינלאומיים רואים במודל זה סטנדרט זהב להגנה על תשתיות קריטיות בעידן של מתיחות היברידית גוברת בעולם.`,
+                    en: `The evolving sophistication of cyber threats leveraging AI-generated exploit vectors has mandated a structural redesign of national cyber defense command centers. The new proactive 'Cyber Shield' paradigm relies on continuous threat emulation and automated isolate-and-remediate protocols.
+
+Public-private technology partnerships have enabled a zero-latency threat telemetry pipeline connecting financial institutions, telecom carriers, and power grids. Incident response times have consequently been reduced to sub-millisecond metrics.
+
+International partners view this defensive architecture as a benchmark for critical infrastructure protection amid accelerating global hybrid threats.`
+                }
+            },
+            {
+                id: 104,
+                regionId: 'israel',
+                flag: '🇮🇱',
+                date: '2026-10-08',
+                views: 870,
+                tags: ['Общество', 'Демография'],
+                title: {
+                    ru: 'Демографическая динамика и урбанизация Негева и Галилеи',
+                    he: 'דינמיקה דמוגרפית ועירוניות בנגב ובגליל',
+                    en: 'Demographic Dynamics and Urbanization in the Negev and Galilee'
+                },
+                snippet: {
+                    ru: 'Масштабные государственные инвестиции в скоростной транспорт и высокотехнологичные кластеры меняют расселение населения...',
+                    he: 'השקעות מדינה נרחבות בתחבורה מהירה ובאשכולות הייטק משנות את פריסת האוכלוסייה...',
+                    en: 'Substantial state investment in high-speed transit and tech hubs is reshaping demographic density across peripheral regions...'
+                },
+                content: {
+                    ru: `Стратегия децентрализации крупных городских агломераций принесла ощутимые результаты. Строительство скоростных железнодорожных магистралей и создание научно-исследовательских парков в южных и северных регионах привлекает молодые семьи и специалистов IT-сектора.
+
+Инфраструктурные проекты сопровождаются развитием автономных "зеленых" микрорайонов с замкнутым циклом водоснабжения и солнечной генерацией. Это снижает нагрузку на центральные мегаполисы и выравнивает экономический уровень регионов.
+
+Эксперты отмечают, что сбалансированное развитие территории укрепляет внутреннюю устойчивость страны перед лицом внешних и внутренних экономических вызовов.`,
+                    he: `האסטרטגיה לביזור המטרופולינים הגדולים הניבה תוצאות מוחשיות. הקמת מסילות רכבת מהירות ופיתוח פארקי מחקר ופיתוח באזורי הצפון והדרום מושכים משפחות צעירות ואנשי הייטק.
+
+פרויקטי התשתית מלווים בפיתוח שכונות ירוקות ואוטונומיות עם מחזור מים מלא וייצור חשמל סולארי. דבר זה מפחית את העומס על המרכז ומאזן את הרמה הכלכלית בין האזורים.
+
+מומחים מציינים כי פיתוח מאוזן של השטח מחזק את החוסן הפנימי של המדינה מול אתגרים כלכליים חיצוניים ופנימיים.`,
+                    en: `The strategic initiative to decentralize primary metropolitan hubs has yielded measurable structural shifts. High-speed rail expansion alongside R&D park developments in northern and southern districts is attracting tech talent and young families.
+
+Infrastructure projects feature integrated eco-districts utilizing closed-loop water recycling and microgrid solar generation. This mitigates urban congestion while fostering balanced regional wage growth.
+
+Analysts conclude that nationwide infrastructural equilibrium serves as a core pillar of long-term economic resilience.`
+                }
+            },
+
+            // --- USA & AMERICA (4 articles) ---
+            {
+                id: 201,
+                regionId: 'usa',
+                flag: '🇺🇸',
+                date: '2026-10-13',
+                views: 1850,
+                tags: ['Экономика', 'ФРС', 'Торговля'],
+                title: {
+                    ru: 'Денежно-кредитная политика ФРС США и глобальные валютные рынки',
+                    he: 'המדיניות המוניטרית של הפדרל ריזרב ושוקי המטבע העולמיים',
+                    en: 'Federal Reserve Monetary Policy and Global Currency Dynamics'
+                },
+                snippet: {
+                    ru: 'Решение ФРС зафиксировать ключевую ставку на фоне стабилизации инфляции стимулирует рост инвестиций в технологический сектор...',
+                    he: 'החלטת הפד לקבוע את ריבית הבסיס ברקע להתייצבות האינפלציה מעודדת השקעות במגזר הטכנולוגיה...',
+                    en: 'The Federal Reserve decision to benchmark interest rates amid stabilizing inflation is accelerating high-tech investment...'
+                },
+                content: {
+                    ru: `Федеральная резервная система США продемонстрировала прагматичный подход к регулированию уровня ликвидности. В условиях сбалансированных показателей рынка труда и умеренных инфляционных ожиданий переход к предсказуемой траектории ставок создал благоприятный климат для длинных инвестиций.
+
+Особое внимание аналитики уделяют реструктуризации корпоративного долга в технологической отрасли. Доступность капитала стимулирует промышленные капиталовложения в производство полупроводников на территории штатов Аризона и Техас.
+
+Для мировых финансовых рынков этот курс означает укрепление позиций доллара в качестве стабильного расчетного средства, несмотря на растущие попытки диверсификации резервов со стороны развивающихся экономик.`,
+                    he: `הפדרל ריזרב האמריקאי הציג גישה פרגמטית וויסות נזילות השוק. בתנאים של שוק עבודה מאוזן וציפיות אינפלציה מתונות, המעבר למסלול ריבית צפוי יצר אקלים נוח להשקעות ארוכות טווח.
+
+תשומת לב מיוחדת מוקדשת לארגון מחדש של החוב התאגידי במגזר הטכנולוגיה. נגישות ההון מעודדת השקעות תעשייתיות בייצור שבבים במדינות אריזונה וטקסס.
+
+עבור השווקים הפיננסיים העולמיים, מדיניות זו פירושה חיזוק מעמדו של הדולר כאמצעי תשלום יציב, למרות ניסיונות גוברים לגיוון רזרבות מצד כלכלות מתפתחות.`,
+                    en: `The US Federal Reserve has calibrated liquidity management with pragmatic precision. Amid balanced employment indicators and anchored inflation expectations, transparent rate trajectories have established a constructive backdrop for long-term capital deployment.
+
+Financial analysts highlight debt restructuring trends within the technology sector. Capital accessibility is directly driving industrial investments into domestic semiconductor manufacturing across Arizona and Texas.
+
+For global capital markets, this monetary posture reasserts the US dollar's benchmark reserve utility despite ongoing currency diversification strategies by emerging market economies.`
+                }
+            },
+            {
+                id: 202,
+                regionId: 'usa',
+                flag: '🇺🇸',
+                date: '2026-10-11',
+                views: 1320,
+                tags: ['ВПК', 'Технологии'],
+                title: {
+                    ru: 'Модернизация оборонно-промышленного комплекса США: Акцент на ИИ и автономию',
+                    he: 'מודרניזציה של התעשייה הביטחונית בארה"ב: דגש על בינה מלאכותית ואוטונומיה',
+                    en: 'US Defense Industrial Base Modernization: Focus on AI and Autonomous Fleet'
+                },
+                snippet: {
+                    ru: 'Пентагон увеличивает закупки безикипажных платформ и автономных систем наведения для флота и ВВС...',
+                    he: 'הפנטגון מגדיל את הרכש של פלטפורמות ללא צוות ומערכות הנחיה אוטונומיות עבור הצי וחייל האוויר...',
+                    en: 'The Pentagon is scaling procurement of uncrewed surface platforms and autonomous guidance networks...'
+                },
+                content: {
+                    ru: `Новая оборонная стратегия США ставит во главу угла массовое производство автономных систем и беспилотных аппаратов во всех средах. Переход от штучного производства дорогостоящей техники к масштабируемым сетевым платформам позволяет существенно повысить боевую устойчивость войск.
+
+Ключевым элементом программы является привлечение кремниевых стартапов и нетрадиционных поставщиков оборонного софта. Модульная архитектура систем позволяет обновлять программное обеспечение алгоритмов прямо на поле боя.
+
+Партнеры по блоку НАТО уже начинают адаптацию аналогичных стандартов совместимости, что облегчает совместное планирование и проведение операций в ключевых регионах мира.`,
+                    he: `אסטרטגיית ההגנה החדשה של ארה"ב מעמידה במרכז את הייצור ההמוני של מערכות אוטונומיות וכלי טיס ללא טייס בכל הזירות. המעבר מייצור מוגבל של ציוד יקר לפלטפורמות רשת נרחבות מעלה משמעותית את החוסן המבצעי.
+
+רכיב מרכזי בתוכנית הוא שילוב חברות הזנק מסיליקון ואלי וספקי תוכנה לא מסורתיים. הארכיטקטורה המודולרית מאפשרת עדכון תוכנה ואלגוריתמים ישירות בזירת הפעילות.
+
+שותפות נאט"ו כבר החלו להתאים תקני תאימות דומים, דבר המקל על תכנון וביצוע מבצעים משותפים באזורים אסטרטגיים בעולם.`,
+                    en: `The updated US Defense Strategy prioritizes mass production of autonomous platforms and uncrewed systems across land, air, and sea domains. Moving from low-rate production of exquisite platforms toward scalable networked systems enhances operational resilience.
+
+A core tenet involves integrating commercial software ecosystems and Silicon Valley defense-tech firms. Modular open-architecture frameworks permit rapid over-the-air algorithm updates in operational theaters.
+
+NATO allies are simultaneously adopting matching interoperability standards, streamlining joint operational planning across key strategic regions.`
+                }
+            },
+            {
+                id: 203,
+                regionId: 'usa',
+                flag: '🇺🇸',
+                date: '2026-10-07',
+                views: 940,
+                tags: ['Космос', 'Инфраструктура'],
+                title: {
+                    ru: 'Частная космическая индустрия и логистика орбитальных группировок',
+                    he: 'תעשיית החלל הפרטית ולוגיסטיקת הלוויינים במסלול',
+                    en: 'Commercial Space Industry and Orbital Infrastructure Logistics'
+                },
+                snippet: {
+                    ru: 'Снижение стоимости вывода полезной нагрузки на орбиту открывает эру коммерческих станций и связи нового поколения...',
+                    he: 'הורדת עלות שיגור המטען למסלול פותחת עידן של תחנות מסחריות ותקשורת מתקדמת...',
+                    en: 'Plummeting launch costs per kilogram are ushering in commercial space stations and next-gen satellite constellations...'
+                },
+                content: {
+                    ru: `Американский частный космический сектор демонстрирует рекордные темпы роста запуска многоразовых тяжелых ракет. Это не только снизило стоимость доставки грузов на низкую околоземную орбиту, но и создало рынок для орбитального обслуживания, заправки и сборки космических аппаратов.
+
+Развертывание низкоорбитальных спутниковых группировок обеспечило высокоскоростным интернетом самые отдаленные регионы планеты, заложив основу для нового этапа глобальной цифровизации и управления логистикой.
+
+Инвесторы активно вкладывают средства в проекты добычи редких ресурсов и фармпроизводства в условиях microgravity, что обещает стать новым экономическим драйвером в следующем десятилетии.`,
+                    he: `מגזר החלל הפרטי בארה"ב מציג קצב שיא בשיגור רקטות כבדות לשימוש חוזר. דבר זה לא רק הפחית את עלות הובלת המטען למסלול נמוך, אלא גם יצר שוק של שירות, תדלוק והרכבת לוויינים בחלל.
+
+ פריסת מערכי לוויינים במסלול נמוך סיפקה אינטרנט מהיר לאזורים המרוחקים ביותר בכדור הארץ, ותשתית לשלב חדש של דיגיטליזציה עולמית.
+
+משקיעים מזרימים הון לפרויקטים של כריית משאבים נדירים וייצור תרופות בתנאי מיקרו-כבידה, דבר הצפוי להפוך למנוע כלכלי חדש בעשור הקרוב.`,
+                    en: `The US commercial space enterprise is establishing unprecedented launch frequencies utilizing fully reusable heavy-lift launch vehicles. Beyond lowering orbit insertion costs, this ecosystem has created secondary markets for in-space refueling and satellite servicing.
+
+Proliferated Low-Earth Orbit (pLEO) constellations now deliver gigabit satellite broadband to remote global maritime and terrestrial sectors, underpinning resilient global logistics tracking.
+
+Venture capital is increasingly channeling into microgravity biotechnology and specialized orbital manufacturing, positioning space logistics as a major macroeconomic vector.`
+                }
+            },
+            {
+                id: 204,
+                regionId: 'usa',
+                flag: '🇺🇸',
+                date: '2026-10-04',
+                views: 1150,
+                tags: ['Климат', 'Энергетика'],
+                title: {
+                    ru: 'Революция малых модульных ядерных реакторов (SMR) в промышленности',
+                    he: 'מהפכת הכורים הגרעיניים המודולריים הקטנים (SMR) בתעשייה',
+                    en: 'Small Modular Reactor (SMR) Deployment in Heavy Industry'
+                },
+                snippet: {
+                    ru: 'Коммерческая сертификация SMR обеспечивает дата-центры и заводы автономной чистой энергией 24/7...',
+                    he: 'הסמכה מסחרית של כורים מודולריים מספקת למרכזי נתונים ומפעלים אנרגיה נקייה ואוטונומית 24/7...',
+                    en: 'Commercial certification of SMR technology offers data centers and smelters autonomous 24/7 clean baseload power...'
+                },
+                content: {
+                    ru: `Внедрение малых модульных ядерных реакторов (SMR) стало ответом на колоссальный рост энергопотребления центров обработки данных ИИ и гигафабрик. Заводская сборка и стандартизация конструкции позволяют сократить сроки строительства объектов с десятилетия до 2-3 лет.
+
+Энергетические компании США активно подписывают долгосрочные контракты с крупнейшими технологическими гигантами на прямую поставку атомной энергии без нагрузки на общую распределительную сеть.
+
+Этот тренд не только решает проблему углеродной нейтральности, но и гарантирует бесперебойное энергоснабжение критически важных цифровых и промышленных мощностей страны.`,
+                    he: `הטמעת כורים גרעיניים מודולריים קטנים (SMR) הפכה לפתרון עבור הגידול העצום בצריכת החשמל של מרכזי נתונים של בינה מלאכותית ומפעלי ענק. הרכבה במפעל ותקנון התכנון מאפשרים לקצר את זמן ההקמה מעשור ל-2-3 שנים.
+
+חברות אנרגיה בארה"ב חותמות על חוזים ארוכי טווח עם ענקיות הטכנולוגיה לאספקה ישירה של חשמל גרעיני ללא עומס על הרשת הכללית.
+
+מגמה זו לא רק פותרת את אתגר הניטרליות הפחמנית, אלא גם מבטיחה אספקת חשמל רציפה לתשתיות הדיגיטליות והתעשייתיות הקריטיות במדינה.`,
+                    en: `Deploying Small Modular Reactors (SMRs) has emerged as the definitive solution to the exponential electricity demands of AI data centers and advanced gigafactories. Factory-standardized fabrication contracts construction timelines from a decade to 24–36 months.
+
+US power utilities are executing direct Power Purchase Agreements (PPAs) with hyperscalers for dedicated nuclear baseload supply, bypassing municipal grid bottlenecks.
+
+This industrial shift addresses strict decarbonization mandates while guaranteeing uninterrupted, high-density power delivery for critical digital infrastructure.`
+                }
+            },
+
+            // --- RUSSIA & EURASIA (STRICTLY POSITION 3 - 4 articles) ---
+            {
+                id: 301,
+                regionId: 'russia',
+                flag: '🇷🇺',
+                date: '2026-10-14',
+                views: 1980,
+                tags: ['Логистика', 'Торговля', 'Евразия'],
+                title: {
+                    ru: 'Маршрут «Север — Юг» и сухопутные логистические коридоры Евразии',
+                    he: 'מסדרון "צפון-דרום" ומסדרונות הלוגיסטיקה היבשתיים באירואסיה',
+                    en: 'International North–South Transport Corridor and Eurasian Trade Networks'
+                },
+                snippet: {
+                    ru: 'Модернизация железнодорожной и портовой инфраструктуры Каспия увеличивает пропускную способность грузов в Индию и Залив...',
+                    he: 'מודרניזציה של תשתיות הרכבת והנמלים בים הכספי מגדילה את קיבולת מעבר הסחורות להודו ולמפרץ...',
+                    en: 'Upgrading Caspian port and rail infrastructure expands freight transit capacity heading to India and the Gulf...'
+                },
+                content: {
+                    ru: `Развитие Международного транспортного коридора «Север — Юг» ставится во главу угла геоэкономической стратегии Евразийского региона. Завершение строительства недостающих железнодорожных участков и расширение портовых терминалов на Каспийском море позволило существенно сократить время доставки товаров между Балтикой и Индийским океаном.
+
+Эксперты АлефПортал отмечают увеличение контейнерного потока, включающего сельхозпродукцию, металлы и промышленные товары. Активное участие Ирана, Индии и стран Центральной Азии формирует новый устойчивый торговый маршрут, независящий от традиционных морских проливов.
+
+Упрощение таможенных процедур и цифровизация накладных документов способствуют росту взаимного товарооборота и ускорению региональной экономической интеграции.`,
+                    he: `פיתוח מסדרון התחבורה הבינלאומי "צפון-דרום" עומד במרכז האסטרטגיה הגיאו-כלכלית של האזור האירואסיאתי. השלמת מקטעי הרכבת והרחבת המסופים בים הכספי איפשרו לקצר משמעותית את זמן הובלת הסחורות בין הים הבלטי לאוקיינוס ההודי.
+
+מומחי אלףפורטל מצביעים על עלייה בתנועת המכולות, הכוללת תוצרת חקלאית, מתכות וציוד תעשייתי. מעורבות של איראן, הודו ומדינות מרכז אסיה יוצרת מסלול מסחר חדש ויציב שאינו תלוי במצרי ים מסורתיים.
+
+פישוט הליכי המכס ודיגיטליזציה של המסמכים תורמים לגידול בסחר ההדדי ולהאצת האינטגרציה הכלכלית האזורית.`,
+                    en: `The enhancement of the International North–South Transport Corridor (INSTC) forms a structural pillar of Eurasian geo-economics. Finalizing missing railway links and expanding Caspian maritime port terminals has drastically reduced transit lead times between Baltic ports and the Indian Ocean.
+
+AlephPortal freight telemetry indicates rising intermodal container volumes spanning agricultural commodities, metallurgy, and machinery. Coordinated involvement from India, Central Asian republics, and Gulf states secures a resilient trade alternative bypassing maritime chokepoints.
+
+Harmonized customs processing and blockchain-enabled bill-of-lading protocols continue to accelerate cross-border trade throughput.`
+                }
+            },
+            {
+                id: 302,
+                regionId: 'russia',
+                flag: '🇷🇺',
+                date: '2026-10-09',
+                views: 1410,
+                tags: ['Арктика', 'Энергетика'],
+                title: {
+                    ru: 'Северный морской путь: Круглогодичная навигация и инфраструктура 2026',
+                    he: 'הנתיב הימי הצפוני: שייט כלל-שנתי ותשתיות 2026',
+                    en: 'Northern Sea Route: Year-Round Maritime Transit Infrastructure'
+                },
+                snippet: {
+                    ru: 'Ввод в строй новых атомных ледоколов проекта 22220 обеспечивает регулярную проводу танкеров и контейнеровозов на Восток...',
+                    he: 'הפעלת שוברי קרח גרעיניים חדשים מספקת ליווי סדיר של מכליות וספינות מכולה למזרח...',
+                    en: 'Deployment of new nuclear-powered icebreakers enables consistent tanker and container escorts to Eastern ports...'
+                },
+                content: {
+                    ru: `Развитие инфраструктуры Северного морского пути (СМП) переходит на уровень обеспечения стабильной круглогодичной навигации на всем протяжении арктической трассы. Пополнение ледокольного флота новыми атомными судами позволяет уверенно преодолевать тяжелые льды Восточно-Сибирского и Чукотского морей.
+
+На всем протяжении маршрута создается сеть аварийно-спасательных центров, спутникового мониторинга ледовой обстановки и гидрографического обеспечения. Это повышает безопасность судоходства для международных фрахтователей.
+
+Снижение сроков перехода между европейскими и азиатскими портами на 30–40% по сравнению с маршрутом через Суэцкий канал делает СМП все более привлекательной альтернативой в условиях нестабильности мировых морских путей.`,
+                    he: `פיתוח התשתיות של הנתיב הימי הצפוני עובר לשלב של ניווט כלל-שנתי יציב לאורך כל המסלול הארקטי. התרחבות צי שוברי הקרח הגרעיניים מאפשרת להוביל בבטחה אוניות דרך הקרח הכבד של הים הסיבירי המזרחי וים צ'וקצ'י.
+
+לאורך המסלול מוקמת רשת מרכזי חילוץ, ניטור לווייני של מצב הקרח ואבטחה הידרוגרפית. דבר זה מעלה את בטיחות השייט עבור חברות ספנות בינלאומיות.
+
+קיצור זמן השיט בין נמלי אירופה לאסיה ב-30–40% בהשוואה למסלול דרך תעלת סואץ הופך את הנתיב הצפוני לחלופה מושכת ברקע חוסר היציבות בנתיבים הימיים בעולם.`,
+                    en: `Infrastructure commitments along the Northern Sea Route (NSR) are transitioning the Arctic corridor into a dependable, year-round commercial transit lane. Expanding nuclear icebreaker fleets ensures clear passage through Eastern Siberian ice conditions.
+
+Complementary investments include deep-water search-and-rescue stations, real-time synthetic aperture radar (SAR) ice-tracking satellites, and hydrographic charting updates. These measures significantly mitigate operational risks for international carriers.
+
+Transit duration savings of 30–40% relative to Suez Canal routing establish the NSR as a highly strategic alternative amidst global maritime security disruptions.`
+                }
+            },
+            {
+                id: 303,
+                regionId: 'russia',
+                flag: '🇷🇺',
+                date: '2026-10-06',
+                views: 1180,
+                tags: ['Финансы', 'БРИКС'],
+                title: {
+                    ru: 'Интеграция финансовых систем БРИКС+: Расчеты в национальных валютах',
+                    he: 'שילוב המערכות הפיננסיות של BRICS+: תשלומי מטבע מקומי',
+                    en: 'BRICS+ Financial Settlement Integration: Local Currency Networks'
+                },
+                snippet: {
+                    ru: 'Запуск межбанковской системы платежных сообщений и цифровых финансово-расчетных инструментов снижает транзакционные издержки...',
+                    he: 'השקת מערכת הודעות תשלום בין-בנקאית וכלים דיגיטליים מפחיתה את עלויות העברות הכספים...',
+                    en: 'Deployment of interbank messaging frameworks and digital settlement instruments minimizes cross-border transaction friction...'
+                },
+                content: {
+                    ru: `Финансово-банковский сектор стран БРИКС+ завершил тестирование децентрализованной системы передачи финансовых сообщений. Это создало независимую платформу для проведения трансграничных расчетов без использования традиционных западных клиринговых систем.
+
+Доля расчетов в национальных валютах во взаимной торговле участников объединения превысила рекордные показатели. Использование цифровых валют центральных банков (CBDC) и токенизированных товарных активов позволяет минимизировать валютные риски и задержки платежей.
+
+Эксперты прогнозируют дальнейшее расширение состава участников платежного пула за счет стран Юго-Восточной Азии и Африки.`,
+                    he: `המגזר הפיננסי והבנקאי של מדינות BRICS+ השלים את הניסוי במערכת מבוזרת להעברת הודעות פיננסיות. דבר זה יצר פלטפורמה עצמאית לביצוע תשלומים חוצי גבולות ללא צורך במערכות סליקה מערביות מסורתיות.
+
+נתח התשלומים במטבעות מקומיים בסחר ההדדי של חברות הארגון הגיע לשיא. השימוש במטבעות דיגיטליים של בנקים מרכזיים (CBDC) ונכסים ממוחשבים מפחית סיכוני מטבע ועיכובים בתשלומים.
+
+מומחים חוזים הרחבה נוספת של משתתפי רשת התשלומים עם הצטרפות מדינות נוספות בדרום-מזרח אסיה ואפריקה.`,
+                    en: `The BRICS+ banking coalition has operationalized a decentralized financial messaging system. This platform facilitates frictionless cross-border settlements independent of legacy clearing networks.
+
+Local currency settlement ratios across intra-bloc commodity trade have achieved historic highs. Deploying Central Bank Digital Currencies (CBDCs) and asset-backed digital tokens further insulates supply chains from FX volatility.
+
+Macroeconomists anticipate continued onboarding of Southeast Asian and African trade partners into the collateralized messaging mesh.`
+                }
+            },
+            {
+                id: 304,
+                regionId: 'russia',
+                flag: '🇷🇺',
+                date: '2026-10-02',
+                views: 890,
+                tags: ['Сельское Хозяйство', 'Продовольствие'],
+                title: {
+                    ru: 'Агропромышленный экспорт Евразии: Продовольственная безопасность и логистика',
+                    he: 'יצוא החקלאות באירואסיה: ביטחון תזונתי ולוגיסטיקה',
+                    en: 'Eurasian Agricultural Exports: Food Security and Supply Logistics'
+                },
+                snippet: {
+                    ru: 'Рост зернового экспорта и развитие элеваторной инфраструктуры укрепляют позиции региона на мировом рынке продовольствия...',
+                    he: 'הגידול ביצוא התבואות ופיתוח תשתיות הממגורות מחזקים את מעמד האזור בשוק המזון העולמי...',
+                    en: 'Expanding grain exports and modernized silo networks consolidate the region position in global food markets...'
+                },
+                content: {
+                    ru: `Агропромышленный комплекс Евразийского союза демонстрирует устойчивый рост объемов производства зерновых, масличных и бобовых культур. Модернизация сухопутных зерновых терминалов на границе с Китаем и портов Азово-Черноморского бассейна позволяет наращивать экспорт в страны Ближнего Востока и Африки.
+
+Внедрение технологий точного земледелия, ИИ-мониторинга урожайности и автономной сельхозтехники повышает среднюю урожайность и снижает зависимость от погодных факторов.
+
+В условиях глобальных климатических изменений зерновой потенциал Евразии становится ключевым фактором обеспечения мировой продовольственной стабильности.`,
+                    he: `המגזר החקלאי של האיחוד האירואסיאתי מציג גידול יציב בהיקפי הייצור של תבואות, גידולי שמן וקטניות. מודרניזציה של מסופי תבואה יבשתיים בגבול עם סין ובנמלים מאפשרת להגדיל את היצוא למזרח התיכון ואפריקה.
+
+הטמעת טכנולוגיות חקלאות מדויקת, ניטור יבולים בבינה מלאכותית וציוד חקלאי אוטונומי מעלה את התפוקה ומפחיתה תלות בתנאי מזג האוויר.
+
+בתנאים של שינויי אקלים עולמיים, פוטנציאל התבואה של אירואסיה הופך לגורם מרכזי בהבטחת יציבות המזון העולמית.`,
+                    en: `The Eurasian agricultural complex has achieved record output volumes across cereal, oilseed, and pulse harvests. Specialized inland grain hubs bordering China alongside Black Sea terminal expansions have facilitated record bulk shipments to Middle Eastern and African markets.
+
+Precision farming adoption, satellite crop monitoring, and autonomous harvesting equipment have elevated yield consistency while buffering against weather anomalies.
+
+Amid global climate volatility, Eurasian grain reserves remain indispensable to international food security frameworks.`
+                }
+            },
+
+            // --- CHINA & ASIA-PACIFIC (4 articles) ---
+            {
+                id: 401,
+                regionId: 'china',
+                flag: '🇨🇳',
+                date: '2026-10-13',
+                views: 1620,
+                tags: ['Полупроводники', 'Технологии'],
+                title: {
+                    ru: 'Полупроводниковая независимость Китая: Прорыв в литографии 2026',
+                    he: 'עצמאות השבבים של סין: פריצת דרך בליטוגרפיה 2026',
+                    en: 'China Semiconductor Autonomy: Breakthrough in EUV Lithography 2026'
+                },
+                snippet: {
+                    ru: 'Запуск отечественных литографических установок глубокого ультрафиолета позволяет наладить выпуск 3-нм чипов...',
+                    he: 'הפעלת מתקני ליטוגרפיה מקומיים מאפשרת ייצור סדיר של שבבי 3 ננומטר...',
+                    en: 'Domestic deployment of advanced EUV lithography tools facilitates commercial 3nm node production...'
+                },
+                content: {
+                    ru: `Китайская микроэлектронная промышленность достигла важного вехи в рамках программы полного импортозамещения. Ввод в эксплуатацию коммерческих литографических установок собственного производства позволил запустить серийный выпуск высокопроизводительных процессоров для ИИ-вычислений.
+
+Создание замкнутой цепочки поставок — от кремниевых пластин и химических реагентов до отечественных САПР-систем — снижает чувствительность сектора к внешним торговым ограничениям.
+
+Это событие меняет ландшафт мировой IT-индустрии, стимулируя конкуренцию и ускоряя разработку альтернативных архитектур процессоров на базе RISC-V.`,
+                    he: `תעשיית המיקרו-אלקטרוניקה הסינית הגיעה לאבן דרך חשובה במסגרת התוכנית לתחליף יבוא מלא. הפעלת מתקני ליטוגרפיה מסחריים מתכנון מקומי איפשרה להתחיל בייצור סדיר של מעבדים מתקדמים לחישובי בינה מלאכותית.
+
+יצירת שרשרת אספקה סגורה — מרכיבי סיליקון וכימיקלים ועד תוכנות תכנון מקומיות — מפחיתה את רגישות המגזר להגבלות מסחר חיצוניות.
+
+אירוע זה משנה את מפת תעשיית ההייטק העולמית, מאיץ את התחרות ומקדם פיתוח ארכיטקטורות מעבדים חלופיות המבוססות על RISC-V.`,
+                    en: `China's semiconductor ecosystem has achieved a milestone in its hardware sovereignty initiative. Commercial deployment of indigenously developed extreme ultraviolet (EUV) lithography systems has unlocked domestic 3nm fabrication for high-performance computing chips.
+
+Constructing a fully localized supply chain—spanning high-purity silicon ingots, specialized photoresists, and EDA design tools—substantially decouples the sector from international sanctions.
+
+This breakthrough reshapes the global technology ecosystem, accelerating RISC-V architecture adoption worldwide.`
+                }
+            },
+            {
+                id: 402,
+                regionId: 'china',
+                flag: '🇨🇳',
+                date: '2026-10-10',
+                views: 1290,
+                tags: ['Индо-Пацифик', 'Флот'],
+                title: {
+                    ru: 'Военно-морские силы в АТР: Расширение авианосного флота и баз',
+                    he: 'הצי הימי באסיה-פסיפיק: הרחבת צי נושאות המטוסים והבסיסים',
+                    en: 'Asia-Pacific Naval Power Expansion: Carrier Strike Groups and Overseas Logistics'
+                },
+                snippet: {
+                    ru: 'Спуск на воду очередного авианосца с электромагнитными катапультами усиливает присутствие в Тихом и Индийском океанах...',
+                    he: 'השקת נושאת מטוסים נוספת עם מעטפת אלקטרומגנטית מחזקת את הנוכחות באוקיינוס השקט וההודי...',
+                    en: 'Commissioning of advanced aircraft carriers featuring electromagnetic catapults expands Indian Ocean deployment capabilities...'
+                },
+                content: {
+                    ru: `Китай продолжает планомерное наращивание военно-морского присутствия в Индо-Тихоокеанском регионе. Ввод в строй новых авианосных ударных групп, оснащенных электромагнитными катапультами и палубными самолетами ДРЛО, расширяет радиус контроля морских коммуникаций.
+
+Развитие сети пунктов материально-технического обеспечения в государствах Глобального Юга обеспечивает автономность действий флота при защите торговых маршрутов, по которым поставляется нефть и сырье.
+
+Соседние страны и региональные блоки адаптируют свои оборонные доктрины, что приводит к усложнению военно-политического баланса в южноазиатских акваториях.`,
+                    he: `סין ממשיכה בהרחבה מתוכננת של הנוכחות הימית באזור אסיה-פסיפיק. הפעלת קבוצות תקיפה של נושאות מטוסים מצוידות במעטפות אלקטרומגנטית ומטוסי גילוי מוקדם מרחיבה את רדיוס השליטה בנתיבי השיט.
+
+פיתוח רשת בסיסי לוגיסטיקה במדינות הדרום הגלובלי מבטיח עצמאות של הצי בהגנה על מסלולי המסחר שבהם מועברים נפט ומוצרי גלם.
+
+מדינות שכנות וגושים אזוריים מתאימים את אסטרטגיית ההגנה שלהם, דבר המוביל למורכבות במאזן הצבאי-פוליטי באזור.`,
+                    en: `Naval force expansion across the Indo-Pacific remains a strategic cornerstone. Operationalizing new aircraft carrier strike groups equipped with Electromagnetic Aircraft Launch Systems (EMALS) expands long-range power projection.
+
+Developing dual-use maritime logistics facilities across the Global South grants naval task forces sustained operational endurance along vital energy transit straits.
+
+Regional actors and coalition partners are adjusting defense doctrines accordingly, recalibrating the security matrix across regional sea lanes.`
+                }
+            },
+            {
+                id: 403,
+                regionId: 'china',
+                flag: '🇨🇳',
+                date: '2026-10-05',
+                views: 1040,
+                tags: ['Электромобили', 'Батареи'],
+                title: {
+                    ru: 'Глобальная экспансия электротранспорта: Твердотельные аккумуляторы',
+                    he: 'התרחבות הרכב החשמלי העולמית: סוללות מצב מוצק',
+                    en: 'Global EV Expansion Driven by Commercial Solid-State Battery Commercialization'
+                },
+                snippet: {
+                    ru: 'Запуск в массовое производство твердотельных батарей увеличивает запас хода электромобилей до 1200 км...',
+                    he: 'ייצור המוני של סוללות מצב מוצק מעלה את טווח הנסיעה של רכבים חשמליים ל-1200 ק"מ...',
+                    en: 'Mass production of solid-state EV battery cells expands vehicle ranges to 1,200 km per single charge...'
+                },
+                content: {
+                    ru: `Китайские производители аккумуляторов совершили технологический рывок, перейдя к серийному выпуску твердотельных батарей с высокой плотностью энергии. Это решило ключевые проблемы электротранспорта: ограниченный запас хода и высокую скорость износа при низких температурах.
+
+Строительство гигафабрик в Юго-Восточной Азии и Латинской Америке позволяет автоконцернам обходить тарифные барьеры и укреплять присутствие на развивающихся рынках.
+
+Аналитики прогнозируют, что удешевление стоимости киловатт-часа батареи окончательно уравняет стоимость электромобилей и машин с ДВС уже к концу 2026 года.`,
+                    he: `יצרני הסוללות בסין רשמו פריצת דרך טכנולוגית עם המעבר לייצור המוני של סוללות מצב מוצק בעלות צפיפות אנרגיה גבוהה. דבר זה פתר את האתגרים המרכזיים של רכבים חשמליים: טווח נסיעה מוגבל ושחיקה בטמפרטורות נמוכות.
+
+הקמת מפעלי ענק בדרום-מזרח אסיה ובאמריקה הלטינית מאפשרת לחברות הרכב לעקוף מסי יבוא ולחזק את הנוכחות בשווקים מתפתחים.
+
+אנליסטים חוזים כי הוזלת מחיר קילוואט-שעה של סוללה תשווה סופית את מחיר הרכב החשמלי לרכב בנזין כבר בסוף 2026.`,
+                    en: `Chinese battery manufacturers have catalyzed a generational leap through high-volume solid-state cell production. This mitigates traditional electric vehicle drawbacks, radically improving energy density and cold-weather retention.
+
+Establishing overseas gigafactories across Southeast Asia and Latin America enables automakers to navigate protective tariffs while capturing emerging market share.
+
+Automotive analysts project that dropping kilowatt-hour production costs will establish capital purchase parity between EVs and internal combustion vehicles by late 2026.`
+                }
+            },
+            {
+                id: 404,
+                regionId: 'china',
+                flag: '🇨🇳',
+                date: '2026-10-01',
+                views: 820,
+                tags: ['Инфраструктура', 'ВРЭП'],
+                title: {
+                    ru: 'Интеграция RCEP и высокоскоростные магистрали Юго-Восточной Азии',
+                    he: 'שילוב RCEP ומסילות הרכבת המהירות בדרום-מזרח אסיה',
+                    en: 'RCEP Integration and Pan-Asian High-Speed Railway Networks'
+                },
+                snippet: {
+                    ru: 'Соединение железнодорожных сетей Китая, Лаоса, Таиланда и Малайзии создает единый логистический контур...',
+                    he: 'חיבור רשתות הרכבת של סין, לאוס, תאילנד ומלזיה יוצר רצף לוגיסטי אחיד...',
+                    en: 'Linking rail networks across China, Laos, Thailand, and Malaysia establishes an integrated logistics corridor...'
+                },
+                content: {
+                    ru: `Завершение ключевых участков Пан-Азиатской высокоскоростной железнодорожной сети объединило сухопутные рынки стран АСЕАН с промышленными центрами Южного Китая. Скоростные грузовые поезда сократили время транзита портящихся товаров до нескольких суток.
+
+В рамках соглашения Всеобъемлющего регионального экономического партнерства (RCEP) снижены таможенные пошлины на 90% товаров, что стимулировало вынос сборочных производств в Вьетнам и Индонезию.
+
+Экономическая синергия региона превращает АТР в главный локомотив мирового ВВП, несмотря на глобальные финансовые колебания.`,
+                    he: `השלמת המקטעים המרכזיים ברשת הרכבות המהירה הפאן-אסייתית חיברה את השווקים היבשתיים של מדינות ASEAN עם המרכזים התעשייתיים בדרום סין. רכבות משא מהירות קיצרו את זמן ההובלה לימים ספורים.
+
+במסגרת הסכם השותפות הכלכלית האזורית המקיפה (RCEP) הופחתו מסי המכס על 90% מהסחורות, דבר שעודד העברת מפעלי הרכבה לווייטנאם ואינדונזיה.
+
+הסינרגיה הכלכלית של האזור הופכת את אסיה-פסיפיק למנוע המרכזי של התוצר העולמי, למרות תנודות פיננסיות בעולם.`,
+                    en: `Completing primary segments of the Pan-Asian High-Speed Railway mesh has directly linked ASEAN landlocked markets with industrial clusters in Southern China. Express freight trains have compressed produce and electronics transit times to hours.
+
+Under the Regional Comprehensive Economic Partnership (RCEP), duty eliminations on 90% of tariff lines have fueled supply chain manufacturing migration into Vietnam and Indonesia.
+
+This regional economic synergy establishes the Asia-Pacific as the primary driver of global GDP growth through 2026.`
+                }
+            },
+
+            // --- EU & EUROPE (4 articles) ---
+            {
+                id: 501,
+                regionId: 'europe',
+                flag: '🇪🇺',
+                date: '2026-10-14',
+                views: 1510,
+                tags: ['Регулирование', 'ИИ', 'ЕС'],
+                title: {
+                    ru: 'Европейский акт об ИИ в действии: Новые стандарты для глобального техсектора',
+                    he: 'חוק הבינה המלאכותית האירופי בפעולה: תקנים חדשים למגזר הטכנולוגיה',
+                    en: 'European AI Act Enforced: Standardizing Global Digital Governance'
+                },
+                snippet: {
+                    ru: 'Вступление в силу жестких требований к прозрачности алгоритмов меняет стратегии мировых IT-корпораций в Европе...',
+                    he: 'כניסת הדרישות השקופות לאלגוריתמים לתוקף משנה את האסטרטגיה של חברות הטכנולוגיה באירופה...',
+                    en: 'Enforcement of stringent algorithmic transparency standards reshapes multinational tech strategies in Europe...'
+                },
+                content: {
+                    ru: `Европейский союз перешел к практическому применению норм Закона об искусственном интеллекте (EU AI Act). Обязательная сертификация моделей высокого риска и аудит обучающих датасетов стали строгим условием работы на едином рынке ЕС.
+
+Технологические гиганты вынуждены адаптировать свои нейросети, создавая специальные европейские версии сервисов с повышенным уровнем защиты персональных данных и локальным хранением информации.
+
+Эксперты отмечают «эффект Брюсселя»: европейские нормативные стандарты постепенно становятся регуляторным ориентиром для многих стран Латинской Америки и Азии.`,
+                    he: `האיחוד האירופי עבר ליישום מעשי של חוק הבינה המלאכותית (EU AI Act). הסמכת חובה של דגמים בסיכון גבוה וביקורת על מאגרי הנתונים הפכו לתנאי מחייב לפעילות בשוק האירופי.
+
+ענקיות הטכנולוגיה נדרשות להתאים את הרשתות הנירונליות שלהן, תוך יצירת גרסאות אירופיות מיוחדות עם הגנה מוגברת על פרטיות ואחסון מידע מקומי.
+
+מומחים מצביעים על "אפקט בריסל": התקנים האירופיים הופכים בהדרגה למודל רגולטורי עבור מדינות רבות באמריקה הלטינית ואסיה.`,
+                    en: `The European Union has activated enforcement measures under the comprehensive EU AI Act. Mandatory compliance audits and training data transparency documentation are now prerequisites for commercial operations across the Single Market.
+
+Multinational technology firms are restructuring model architectures, deploying localized European data enclaves with enhanced privacy guardrails.
+
+Legal analysts observe the 'Brussels Effect' in real time: European regulatory benchmarks are rapidly being adopted across jurisdictions in Latin America and Asia.`
+                }
+            },
+            {
+                id: 502,
+                regionId: 'europe',
+                flag: '🇪🇺',
+                date: '2026-10-11',
+                views: 1140,
+                tags: ['Зеленая Энергетика', 'Водород'],
+                title: {
+                    ru: 'Водородный магистральный трубопровод Европы: Проект «SoutH2 Corridor»',
+                    he: 'צינור המימן המרכזי של אירופה: פרויקט "SoutH2 Corridor"',
+                    en: 'European Green Hydrogen Infrastructure: The SoutH2 Corridor Project'
+                },
+                snippet: {
+                    ru: 'Строительство водородопровода из Северной Африки через Италию в Германию обеспечивает декарбонизацию тяжелой промышленности...',
+                    he: 'בניית צינור מימן מצפון אפריקה דרך איטליה לגרמניה מבטיחה ניטרליות פחמנית בתעשייה הכבדה...',
+                    en: 'Construction of a dedicated hydrogen pipeline connecting North Africa to Germany enables heavy industry decarbonization...'
+                },
+                content: {
+                    ru: `Проект водородного коридора SoutH2 вступил в фазу активного строительства. Трубопровод протяженностью более 3300 км соединит солнечные и ветровые водородные кластеры Северной Африки с промышленными центрами Баварии и Рурского региона.
+
+Переоборудование существующей газотранспортной сети позволило снизить капитальные затраты на 50%. Чистый водород заменит природный газ в металлургии и химическом производстве.
+
+Этот масштабный проект укрепляет энергетическую независимость Европы и формирует долгосрочный экономический мост между ЕС и странами Магриба.`,
+                    he: `פרויקט מסדרון המימן SoutH2 נכנס לשלב הבנייה הפעילה. הצינור באורך של מעל 3,300 ק"מ יחבר בין מרכזי ייצור המימן בצפון אפריקה למרכזים התעשייתיים בגרמניה.
+
+התאמת רשת הגז הקיימת איפשרה להפחית את עלויות ההקמה ב-50%. מימן נקי יחליף את הגז הטבעי בתעשיית המתכת והכימיה.
+
+פרויקט ענק זה מחזק את העצמאות האנרגטית של אירופה ובונה גשר כלכלי ארוך טווח בין האיחוד האירופי למדינות צפון אפריקה.`,
+                    en: `Construction on the 3,300 km SoutH2 Hydrogen Corridor has accelerated. The dedicated pipeline network will transport green hydrogen produced via solar and wind arrays in North Africa directly to industrial core zones in Germany and Italy.
+
+Repurposing existing natural gas midstream assets has cut capital expenditure by half. Green hydrogen feedstocks will offset fossil fuel reliance in steelmaking and chemical refining.
+
+This landmark energy initiative strengthens European security of supply while constructing an enduring economic bridge across the Mediterranean.`
+                }
+            },
+            {
+                id: 503,
+                regionId: 'europe',
+                flag: '🇪🇺',
+                date: '2026-10-07',
+                views: 990,
+                tags: ['Оборона', 'Евросоюз'],
+                title: {
+                    ru: 'Европейская оборонная инициатива: Совместные закупки и стандартизация',
+                    he: 'יוזמת ההגנה האירופית: רכש משותף ותקנון',
+                    en: 'European Defense Readiness Strategy: Joint Procurement and Standardization'
+                },
+                snippet: {
+                    ru: 'Создание единого фонда оборонных инвестиций ЕС ускоряет разработку европейского истребителя 6-го поколения...',
+                    he: 'הקמת קרן השקעות ביטחונית מאוחדת באיחוד מאיצה את פיתוח מטוס הקרב האירופי מהדור השישי...',
+                    en: 'Establishing a unified EU Defense Investment Fund accelerates sixth-generation fighter and air defense R&D...'
+                },
+                content: {
+                    ru: `Страны Евросоюза делают решительные шаги по преодолению фрагментации своего ВПК. Запуск программы единых оборонных закупок и унификации систем вооружений позволяет существенно снизить дублирование расходов и улучшить боевую совместимость.
+
+Приоритетом фонда стали проекты создания единого европейского щита ПРО, систем космической разведки и боевой авиации нового поколения (FCAS).
+
+Усиление европейского столпа безопасности происходит в тесной координации с НАТО, обеспечивая стратегическую автономию региона при сохранении трансатлантического союза.`,
+                    he: `מדינות האיחוד האירופי עושות צעדים משמעותיים להתגברות על הפיצול בתעשייה הביטחונית. השקת תוכנית רכש ביטחוני מאוחד ותקנון מערכות הנשק מאפשרת להפחית כפילויות ולשפר את התאימות המבצעית.
+
+עדיפות הקרן ניתנה לפרויקטים של הקמת מגן הגנה אווירית אירופי מאוחד, מערכות מודיעין חללי ומטוס קרב מסדר חדש.
+
+חיזוק מרכיב הביטחון האירופי מתבצע בתיאום הדוק עם נאט"ו, תוך הבטחת עצמאות אסטרטגית לצד שמירה על הברית הטרנס-אטלנטית.`,
+                    en: `EU member states are taking decisive steps to consolidate the European Defense Industrial Base. Launching joint procurement frameworks streamlines defense spending and resolves equipment interoperability bottlenecks.
+
+Funding priorities emphasize the European Sky Shield Initiative, sovereign space-based reconnaissance constellations, and Future Combat Air System (FCAS) flight testing.
+
+Reinforcing European defense autonomy proceeds in tandem with NATO operational frameworks, ensuring sovereign readiness alongside transatlantic commitments.`
+                }
+            },
+            {
+                id: 504,
+                regionId: 'europe',
+                flag: '🇪🇺',
+                date: '2026-10-03',
+                views: 860,
+                tags: ['Транспорт', 'Экология'],
+                title: {
+                    ru: 'Высокоскоростная железнодорожная сеть Европы: Альтернатива авиаперелетам',
+                    he: 'רשת הרכבות המהירות באירופה: חלופה לטיסות פנים',
+                    en: 'Trans-European High-Speed Rail Network: Displacing Short-Haul Aviation'
+                },
+                snippet: {
+                    ru: 'Открытие новых ночных и экспресс-маршрутов между столицами ЕС сокращает выбросы СО2 на 40% в секторе перевозок...',
+                    he: 'פתיחת קווים מהירים חדשים בין בירות האיחוד מפחיתה את פליטות הפחמן ב-40% במגזר התחבורה...',
+                    en: 'Opening new high-speed passenger rail routes across major capitals reduces European aviation emissions by 40%...'
+                },
+                content: {
+                    ru: `Масштабная программа модернизации железных дорог Европы принесла первые экологические и экономические результаты. Запуск единого билетно-диспетчерского пространства и скоростных поездов нового поколения сделали ж/д поездки более быстрыми и удобными, чем авиаперелеты на расстояния до 1000 км.
+
+Запрет на короткие внутренние авиарейсы при наличии альтернативного ж/д маршрута продолжительностью менее 2.5 часов доказал свою эффективность во Франции и Испании.
+
+Инвестиции в инфраструктуру ночных экспрессов трансформируют логистику континента, формируя единую связную сеть от Лиссабона до Варшавы.`,
+                    he: `תוכנית המודרניזציה הנרחבת של הרכבות באירופה הניבה תוצאות סביבתיות וכלכליות ראשונות. השקת מערכת כרטיסים מאוחדת ורכבות מהירות הפכו את הנסיעה ברכבת למהירה ונוחה יותר מטיסות למרחקים של עד 1000 ק"מ.
+
+האיסור על טיסות פנים קצרות כאשר קיימת חלופת רכבת של פחות מ-2.5 שעות הוכיח את יעילותו בצרפת וספרד.
+
+השקעות בתשתיות רכבות לילה משנות את הלוגיסטיקה ביבשת, ומחברות את ליסבון ועד ורשה ברשת אחת.`,
+                    en: `The EU Trans-European Transport Network (TEN-T) modernization strategy is delivering measurable climate and transit metrics. Integrated cross-border ticketing and next-gen rolling stock make rail faster and more convenient than regional aviation under 1,000 km.
+
+Legislative bans on short-haul domestic flights where equivalent rail alternatives exist under 2.5 hours have proven effective in France and Spain.
+
+Substantial infrastructure financing into high-speed night express corridors is unifying continental travel from Lisbon to Warsaw.`
+                }
             }
-        };
+        ];
 
-        window.addEventListener('DOMContentLoaded', () => {
-            renderCountryFilters();
-            renderFinancialTicker();
-            renderNewsFeed();
-            renderKnessetPolls();
-            renderAnalytics();
-            updateBookmarkBadge();
-            calculateConversion();
-        });
+        // Ticker Mock Items
+        const tickerItems = [
+            "⚡ БРИКС+: Утверждена архитектура платформы трансграничных расчетов",
+            "📈 Нефть Brent удерживается выше $84/барр. на фоне спроса в Азии",
+            "🛡️ Кнессет одобрил оборонный бюджет с акцентом на ИИ-системы",
+            "💻 В Европе вступил в силу основной пакет норм EU AI Act",
+            "🚀 США завершили испытания новых тяжелых многоразовых носителей"
+        ];
 
-        // Language Switcher Function
-        function setLanguage(lang) {
+        // --- RENDER & INTERACTION FUNCTIONS ---
+
+        // Clock updating function
+        function updateClock() {
+            const now = new Date();
+            const utcString = now.toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+            const el = document.getElementById('live-clock');
+            if(el) el.innerText = utcString;
+        }
+        setInterval(updateClock, 1000);
+
+        // Language Switcher
+        function changeLanguage(lang) {
             currentLang = lang;
-            const htmlTag = document.documentElement;
+            const htmlEl = document.documentElement;
             
             if (lang === 'he') {
-                htmlTag.setAttribute('dir', 'rtl');
-                htmlTag.setAttribute('lang', 'he');
+                htmlEl.setAttribute('dir', 'rtl');
+                htmlEl.setAttribute('lang', 'he');
+                htmlEl.style.fontFamily = "'Rubik', sans-serif";
             } else {
-                htmlTag.setAttribute('dir', 'ltr');
-                htmlTag.setAttribute('lang', lang);
+                htmlEl.setAttribute('dir', 'ltr');
+                htmlEl.setAttribute('lang', lang);
+                htmlEl.style.fontFamily = "'Inter', sans-serif";
             }
 
-            // Update Language Buttons Style
-            ['ru', 'he', 'en'].forEach(l => {
-                const btn = document.getElementById(`lang-${l}`);
-                if (l === lang) {
-                    btn.className = "px-2.5 py-1.5 rounded-lg transition-all bg-blue-600 text-white shadow";
-                } else {
-                    btn.className = "px-2.5 py-1.5 rounded-lg transition-all text-gray-400 hover:text-white";
-                }
-            });
-
-            // Update Static Strings
-            const t = translations[lang];
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (t[key]) el.textContent = t[key];
-            });
-
-            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
-                const key = el.getAttribute('data-i18n-ph');
-                if (t[key]) el.placeholder = t[key];
-            });
-
-            renderCountryFilters();
-            renderNewsFeed();
+            renderUI();
         }
 
-        // Render Country Pills
-        function renderCountryFilters() {
-            const countries = [
-                { id: 'ALL', name: currentLang === 'he' ? 'הכל' : currentLang === 'en' ? 'All' : 'Все новости', flag: '🌐' },
-                { id: 'IL', name: currentLang === 'he' ? 'ישראל' : currentLang === 'en' ? 'Israel' : 'Израиль', flag: '🇮🇱' },
-                { id: 'US', name: currentLang === 'he' ? 'ארה"ב' : currentLang === 'en' ? 'USA' : 'США', flag: '🇺🇸' },
-                { id: 'CN', name: currentLang === 'he' ? 'סין' : currentLang === 'en' ? 'China' : 'Китай', flag: '🇨🇳' },
-                { id: 'RU', name: currentLang === 'he' ? 'רוסיה' : currentLang === 'en' ? 'Russia' : 'Россия', flag: '🇷🇺' },
-                { id: 'EU', name: currentLang === 'he' ? 'איחוד אירופי' : currentLang === 'en' ? 'EU' : 'Евросоюз', flag: '🇪🇺' }
+        // Currency Converter Logic
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('calc-amount').value) || 0;
+            const from = document.getElementById('calc-from').value;
+            const to = document.getElementById('calc-to').value;
+
+            // Rates base USD (2026 rates)
+            const rates = {
+                USD: 1.0,
+                EUR: 0.915,
+                ILS: 3.72,
+                RUB: 94.5
+            };
+
+            const amountInUSD = amount / rates[from];
+            const result = amountInUSD * rates[to];
+
+            const symbolMap = { USD: '$', EUR: '€', ILS: '₪', RUB: '₽' };
+            document.getElementById('calc-result').innerText = `${result.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${symbolMap[to]}`;
+        }
+
+        // Filter Handlers
+        function filterCategory(catId) {
+            currentCategory = catId;
+            currentTagFilter = null;
+            document.getElementById('active-filter-badge').classList.add('hidden');
+            renderArticles();
+            renderCategoryButtons();
+        }
+
+        function filterTag(tagName) {
+            currentTagFilter = tagName;
+            document.getElementById('filter-tag-name').innerText = tagName;
+            document.getElementById('active-filter-badge').classList.remove('hidden');
+            document.getElementById('active-filter-badge').classList.add('flex');
+            renderArticles();
+        }
+
+        function clearTagFilter() {
+            currentTagFilter = null;
+            document.getElementById('active-filter-badge').classList.add('hidden');
+            renderArticles();
+        }
+
+        function handleSearch() {
+            searchQuery = document.getElementById('search-input').value.toLowerCase();
+            renderArticles();
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Modal Reader Handlers
+        function openArticleModal(id) {
+            const art = articles.find(a => a.id === id);
+            if (!art) return;
+
+            activeArticle = art;
+            art.views++;
+
+            document.getElementById('modal-flag').innerText = art.flag;
+            
+            const cat = categories.find(c => c.id === art.regionId);
+            document.getElementById('modal-category').innerText = cat ? cat[currentLang] : art.regionId;
+            document.getElementById('modal-date').innerText = art.date;
+            document.getElementById('modal-title').innerText = art.title[currentLang];
+            
+            // Format body content into paragraphs
+            const paragraphs = art.content[currentLang].split('\n\n');
+            document.getElementById('modal-body').innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+
+            // Reset audio state
+            resetAudioPlayer();
+
+            // Populate mock comments
+            renderComments();
+
+            document.getElementById('article-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('article-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            resetAudioPlayer();
+        }
+
+        // Audio Player Simulation
+        function toggleAudio() {
+            if (isAudioPlaying) {
+                pauseAudio();
+            } else {
+                playAudio();
+            }
+        }
+
+        function playAudio() {
+            isAudioPlaying = true;
+            document.getElementById('audio-icon-play').classList.add('hidden');
+            document.getElementById('audio-icon-pause').classList.remove('hidden');
+            
+            let progress = 0;
+            const statusEl = document.getElementById('audio-status');
+            const progressEl = document.getElementById('audio-progress');
+
+            audioInterval = setInterval(() => {
+                progress += 2;
+                progressEl.style.width = progress + '%';
+                statusEl.innerText = `Воспроизведение... ${progress}%`;
+
+                if (progress >= 100) {
+                    pauseAudio();
+                    statusEl.innerText = 'Воспроизведение завершено';
+                    progressEl.style.width = '0%';
+                }
+            }, 300);
+        }
+
+        function pauseAudio() {
+            isAudioPlaying = false;
+            clearInterval(audioInterval);
+            document.getElementById('audio-icon-play').classList.remove('hidden');
+            document.getElementById('audio-icon-pause').classList.add('hidden');
+            document.getElementById('audio-status').innerText = 'Пауза';
+        }
+
+        function resetAudioPlayer() {
+            pauseAudio();
+            document.getElementById('audio-progress').style.width = '0%';
+            document.getElementById('audio-status').innerText = 'Готово к воспроизведению • ~2 мин';
+        }
+
+        // Comments System
+        const mockComments = {};
+
+        function renderComments() {
+            if (!activeArticle) return;
+            const list = document.getElementById('comments-list');
+            const artComments = mockComments[activeArticle.id] || [
+                { author: "Д-р Михаил Левин", time: "10 мин назад", text: "Очень точный глубокий разбор инфраструктурного аспекта." },
+                { author: "David K.", time: "1 час назад", text: "Crucial strategic perspectives. The geopolitical vectors line up perfectly with current market trends." }
             ];
 
-            const container = document.getElementById('country-filters');
-            container.innerHTML = countries.map(c => `
-                <button onclick="filterByCountry('${c.id}')" 
-                    class="px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border flex items-center gap-1.5 ${
-                        activeCountryFilter === c.id 
-                        ? 'bg-blue-600 text-white border-blue-400 shadow-md shadow-blue-900/50' 
-                        : 'bg-slate-900/80 text-gray-300 border-white/10 hover:border-blue-500/50'
-                    }">
-                    <span>${c.flag}</span>
-                    <span>${c.name}</span>
-                </button>
-            `).join('');
-        }
-
-        // Render Financial Ticker
-        function renderFinancialTicker() {
-            const grid = document.getElementById('financial-ticker-grid');
-            grid.innerHTML = marketRates.map(item => `
-                <div class="bg-slate-900/60 p-2.5 rounded-xl border border-white/5 flex flex-col justify-between">
-                    <div class="flex justify-between items-center text-[10px] text-gray-400">
-                        <span>${item.name}</span>
-                        <span class="${item.up ? 'text-emerald-400' : 'text-red-400'} font-bold">${item.change}</span>
+            list.innerHTML = artComments.map(c => `
+                <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
+                    <div class="flex items-center justify-between text-slate-400">
+                        <span class="font-bold text-sky-400">${c.author}</span>
+                        <span class="font-mono text-[10px]">${c.time}</span>
                     </div>
-                    <div class="text-sm font-bold text-white mt-1">
-                        ${item.price}
-                    </div>
+                    <p class="text-slate-200">${c.text}</p>
                 </div>
             `).join('');
         }
 
-        // Render News Cards Grid
-        function renderNewsFeed() {
-            const container = document.getElementById('news-container');
-            const emptyState = document.getElementById('empty-state');
+        function addComment() {
+            const input = document.getElementById('comment-input');
+            const text = input.value.trim();
+            if (!text || !activeArticle) return;
 
-            let filtered = articlesData.filter(art => {
-                const matchesCountry = (activeCountryFilter === 'ALL') || (art.country === activeCountryFilter);
-                const matchesSearch = searchQuery === '' || 
-                    art.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                    art.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    art.snippet.toLowerCase().includes(searchQuery.toLowerCase());
-                return matchesCountry && matchesSearch;
-            });
-
-            if (filtered.length === 0) {
-                container.innerHTML = '';
-                emptyState.classList.remove('hidden');
-                return;
-            } else {
-                emptyState.classList.add('hidden');
+            if (!mockComments[activeArticle.id]) {
+                mockComments[activeArticle.id] = [
+                    { author: "Д-р Михаил Левин", time: "10 мин назад", text: "Очень точный глубокий разбор инфраструктурного аспекта." }
+                ];
             }
 
-            container.innerHTML = filtered.map(art => {
-                const isSaved = bookmarkedIds.includes(art.id);
+            mockComments[activeArticle.id].unshift({
+                author: "Эксперт АлефПортал",
+                time: "Только что",
+                text: text
+            });
+
+            input.value = '';
+            renderComments();
+        }
+
+        // RENDER CORE UI
+        function renderCategoryButtons() {
+            const container = document.getElementById('category-buttons');
+            const navContainer = document.getElementById('desktop-nav');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Category Bar Buttons
+            let buttonsHtml = `
+                <button onclick="filterCategory('all')" 
+                        class="px-4 py-2 rounded-xl text-xs font-semibold transition-all ${currentCategory === 'all' ? 'bg-sky-500 text-slate-950 font-bold shadow-lg shadow-sky-500/20' : 'glass-panel text-slate-300 hover:text-white'}">
+                    🌐 ${currentLang === 'he' ? 'כל האזורים' : currentLang === 'en' ? 'All Regions' : 'Все Регионы'}
+                </button>
+            `;
+
+            categories.forEach(cat => {
+                const isActive = currentCategory === cat.id;
+                buttonsHtml += `
+                    <button onclick="filterCategory('${cat.id}')" 
+                            class="px-4 py-2 rounded-xl text-xs font-semibold transition-all ${isActive ? 'bg-sky-500 text-slate-950 font-bold shadow-lg shadow-sky-500/20' : 'glass-panel text-slate-300 hover:text-white'}">
+                        ${cat.icon} ${cat[currentLang]}
+                    </button>
+                `;
+            });
+
+            container.innerHTML = buttonsHtml;
+
+            // Header Nav Items
+            let navHtml = `
+                <button onclick="filterCategory('all')" class="px-3 py-1.5 text-xs font-medium rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
+                    ${currentLang === 'he' ? 'ראשי' : currentLang === 'en' ? 'Main' : 'Главная'}
+                </button>
+            `;
+            categories.forEach(cat => {
+                navHtml += `
+                    <button onclick="filterCategory('${cat.id}')" class="px-3 py-1.5 text-xs font-medium rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
+                        ${cat.icon} ${cat[currentLang]}
+                    </button>
+                `;
+            });
+            navContainer.innerHTML = navHtml;
+            mobileMenu.innerHTML = navHtml;
+
+            // Footer Region List
+            const footerList = document.getElementById('footer-region-list');
+            if (footerList) {
+                footerList.innerHTML = categories.map(cat => `
+                    <li><a href="#" onclick="filterCategory('${cat.id}'); return false;" class="hover:text-sky-400 transition-colors">${cat.icon} ${cat[currentLang]}</a></li>
+                `).join('');
+            }
+        }
+
+        function renderArticles() {
+            const grid = document.getElementById('articles-grid');
+            
+            let filtered = articles.filter(art => {
+                const matchesCategory = currentCategory === 'all' || art.regionId === currentCategory;
+                const matchesTag = !currentTagFilter || art.tags.includes(currentTagFilter);
+                
+                const title = art.title[currentLang].toLowerCase();
+                const snippet = art.snippet[currentLang].toLowerCase();
+                const matchesSearch = !searchQuery || title.includes(searchQuery) || snippet.includes(searchQuery);
+
+                return matchesCategory && matchesTag && matchesSearch;
+            });
+
+            document.getElementById('articles-count').innerText = `${currentLang === 'he' ? 'מוצג' : currentLang === 'en' ? 'Showing' : 'Показано'}: ${filtered.length} ${currentLang === 'he' ? 'כתבות' : currentLang === 'en' ? 'articles' : 'материалов'}`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 glass-panel rounded-3xl border border-slate-800">
+                        <p class="text-slate-400 text-sm">По вашему запросу ничего не найдено.</p>
+                        <button onclick="filterCategory('all'); clearTagFilter();" class="mt-4 px-4 py-2 bg-sky-600 text-white rounded-xl text-xs font-bold">Сбросить фильтры</button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(art => {
+                const cat = categories.find(c => c.id === art.regionId);
                 return `
-                    <article class="glass-card rounded-2xl p-5 flex flex-col justify-between relative group cursor-pointer" onclick="openArticle(${art.id})">
+                    <article onclick="openArticleModal(${art.id})" 
+                             class="glass-panel glass-panel-hover rounded-2xl p-6 border border-slate-800/80 flex flex-col justify-between cursor-pointer transition-all duration-300 group">
                         <div>
-                            <!-- Header Meta -->
-                            <div class="flex items-center justify-between text-xs text-gray-400 mb-3">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-lg">${art.flag}</span>
-                                    <span class="font-bold text-blue-400 uppercase tracking-wider">${art.location}</span>
-                                    <span class="text-gray-600">•</span>
-                                    <span class="bg-slate-800/80 px-2 py-0.5 rounded text-[10px] text-gray-300 border border-white/5">${art.category}</span>
+                            <!-- Header Info -->
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-xl">${art.flag}</span>
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-sky-400 bg-sky-950/80 px-2.5 py-0.5 rounded-full border border-sky-800">
+                                        ${cat ? cat[currentLang] : art.regionId}
+                                    </span>
                                 </div>
-                                <button onclick="event.stopPropagation(); toggleBookmark(${art.id})" class="text-gray-500 hover:text-amber-400 p-1 text-sm transition-colors">
-                                    <i class="${isSaved ? 'fa-solid text-amber-400' : 'fa-regular'} fa-bookmark"></i>
-                                </button>
+                                <span class="text-[11px] font-mono text-slate-500">${art.date}</span>
                             </div>
 
-                            <!-- Title -->
-                            <h3 class="text-base font-bold text-white group-hover:text-blue-400 transition-colors leading-snug mb-2">
-                                ${art.title}
+                            <!-- Article Title -->
+                            <h3 class="font-extrabold text-slate-100 text-base sm:text-lg leading-snug mb-3 group-hover:text-sky-400 transition-colors">
+                                ${art.title[currentLang]}
                             </h3>
 
                             <!-- Snippet -->
-                            <p class="text-xs text-gray-400 line-clamp-3 leading-relaxed mb-4">
-                                ${art.snippet}
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                                ${art.snippet[currentLang]}
                             </p>
                         </div>
 
-                        <!-- Footer Meta -->
-                        <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-500">
-                            <span class="flex items-center gap-1">
-                                <i class="fa-regular fa-clock"></i> ${art.time}
-                            </span>
-                            <div class="flex items-center gap-3">
-                                <span><i class="fa-regular fa-eye mr-1"></i>${art.views}</span>
-                                <span><i class="fa-regular fa-comment mr-1"></i>${art.comments.length}</span>
+                        <div>
+                            <!-- Tags Bar -->
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                ${art.tags.map(t => `
+                                    <span onclick="event.stopPropagation(); filterTag('${t}')" 
+                                          class="text-[10px] bg-slate-900 hover:bg-sky-950 text-slate-400 hover:text-sky-300 px-2 py-0.5 rounded-md border border-slate-800 transition-colors">
+                                        #${t}
+                                    </span>
+                                `).join('')}
+                            </div>
+
+                            <!-- Footer Meta -->
+                            <div class="flex items-center justify-between pt-3 border-t border-slate-800/60 text-[11px] text-slate-500 font-mono">
+                                <span class="flex items-center space-x-1">
+                                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                    <span>${art.views}</span>
+                                </span>
+                                <span class="text-sky-400 font-sans font-semibold flex items-center group-hover:translate-x-1 transition-transform">
+                                    ${currentLang === 'he' ? 'קרא עוד ←' : currentLang === 'en' ? 'Read Analysis →' : 'Читать далее →'}
+                                </span>
                             </div>
                         </div>
                     </article>
@@ -921,232 +1556,51 @@
             }).join('');
         }
 
-        // Filter Actions
-        function filterByCountry(countryId) {
-            activeCountryFilter = countryId;
-            renderCountryFilters();
+        function renderTicker() {
+            const tickerEl = document.getElementById('ticker-content');
+            const fullTicker = [...tickerItems, ...tickerItems].join(' &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp; ');
+            tickerEl.innerHTML = fullTicker;
+        }
 
-            const badge = document.getElementById('active-filter-badge');
-            const filterName = document.getElementById('active-filter-name');
+        function renderUI() {
+            renderCategoryButtons();
+            renderArticles();
+            renderTicker();
+            convertCurrency();
 
-            if (countryId !== 'ALL') {
-                badge.classList.remove('hidden');
-                filterName.textContent = countryId;
+            // Dynamic Text Translations
+            if (currentLang === 'he') {
+                document.getElementById('site-tagline').innerText = 'מודיעין וניתוח גיאופוליטי';
+                document.getElementById('search-input').placeholder = 'חפש ניתוח...';
+                document.getElementById('widget-knesset-title').innerText = 'כנסת 2026: חלוקת מנדטים (120)';
+                document.getElementById('widget-market-title').innerText = 'מדדים עולמיים ואנרגיה';
+                document.getElementById('widget-calc-title').innerText = 'מחשבון המרת מטבע אזורי';
+                document.getElementById('section-heading').querySelector('span').innerText = 'מאמרים וניתוחים';
+                document.getElementById('footer-desc').innerText = 'פורטל גיאופוליטי עצמאי המספק ניתוחי מומחים על אירועים בינלאומיים ומגמות כלכליות.';
+            } else if (currentLang === 'en') {
+                document.getElementById('site-tagline').innerText = 'Geopolitical Intelligence & Analysis';
+                document.getElementById('search-input').placeholder = 'Search analytics...';
+                document.getElementById('widget-knesset-title').innerText = '2026 Knesset Mandate Distribution (120)';
+                document.getElementById('widget-market-title').innerText = 'Global Indices & Energy Hub';
+                document.getElementById('widget-calc-title').innerText = 'Regional Currency Converter';
+                document.getElementById('section-heading').querySelector('span').innerText = 'Geopolitical Intelligence Feeds';
+                document.getElementById('footer-desc').innerText = 'Independent geopolitical portal offering expert analysis on foreign policy and macroeconomic shifts.';
             } else {
-                badge.classList.add('hidden');
-            }
-
-            renderNewsFeed();
-        }
-
-        function handleSearch() {
-            searchQuery = document.getElementById('search-input').value.trim();
-            renderNewsFeed();
-        }
-
-        function resetFilters() {
-            activeCountryFilter = 'ALL';
-            searchQuery = '';
-            document.getElementById('search-input').value = '';
-            document.getElementById('active-filter-badge').classList.add('hidden');
-            renderCountryFilters();
-            renderNewsFeed();
-        }
-
-        // Bookmarks system
-        function toggleBookmark(id) {
-            if (bookmarkedIds.includes(id)) {
-                bookmarkedIds = bookmarkedIds.filter(bId => bId !== id);
-            } else {
-                bookmarkedIds.push(id);
-            }
-            localStorage.setItem('aleph_bookmarks', JSON.stringify(bookmarkedIds));
-            updateBookmarkBadge();
-            renderNewsFeed();
-        }
-
-        function updateBookmarkBadge() {
-            document.getElementById('bookmark-count').textContent = bookmarkedIds.length;
-        }
-
-        function filterBookmarksOnly() {
-            const container = document.getElementById('news-container');
-            const emptyState = document.getElementById('empty-state');
-
-            let savedArticles = articlesData.filter(a => bookmarkedIds.includes(a.id));
-
-            if (savedArticles.length === 0) {
-                container.innerHTML = '';
-                emptyState.classList.remove('hidden');
-                return;
-            }
-
-            emptyState.classList.add('hidden');
-            container.innerHTML = savedArticles.map(art => `
-                <article class="glass-card rounded-2xl p-5 flex flex-col justify-between relative group cursor-pointer" onclick="openArticle(${art.id})">
-                    <div>
-                        <div class="flex items-center justify-between text-xs text-gray-400 mb-3">
-                            <div class="flex items-center gap-2">
-                                <span class="text-lg">${art.flag}</span>
-                                <span class="font-bold text-blue-400 uppercase tracking-wider">${art.location}</span>
-                            </div>
-                            <button onclick="event.stopPropagation(); toggleBookmark(${art.id})" class="text-amber-400 p-1 text-sm">
-                                <i class="fa-solid fa-bookmark"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-base font-bold text-white leading-snug mb-2">${art.title}</h3>
-                        <p class="text-xs text-gray-400 line-clamp-3 leading-relaxed mb-4">${art.snippet}</p>
-                    </div>
-                </article>
-            `).join('');
-        }
-
-        // Open Article Modal
-        function openArticle(id) {
-            const art = articlesData.find(a => a.id === id);
-            if (!art) return;
-
-            currentActiveArticleId = id;
-            art.views += 1;
-
-            document.getElementById('modal-country-flag').textContent = art.flag;
-            document.getElementById('modal-location').textContent = `${art.location} | ${art.category}`;
-            document.getElementById('modal-title').textContent = art.title;
-            document.getElementById('modal-date').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> 14 Октября 2026, ${art.time}`;
-            document.getElementById('modal-body').innerHTML = `<p>${art.body}</p><p class="mt-3 text-xs text-gray-400">Источник: Аналитический Департамент АлефПортал (AlephPortal Intelligence)</p>`;
-
-            renderComments(art.comments);
-
-            document.getElementById('article-modal').classList.remove('hidden');
-            renderNewsFeed();
-        }
-
-        function closeArticleModal() {
-            document.getElementById('article-modal').classList.add('hidden');
-            if (isAudioPlaying) toggleAIAudio();
-        }
-
-        // Comments System
-        function renderComments(comments) {
-            const list = document.getElementById('comments-list');
-            if (!comments || comments.length === 0) {
-                list.innerHTML = `<p class="text-xs text-gray-500 italic">Пока нет комментариев. Будьте первым!</p>`;
-                return;
-            }
-
-            list.innerHTML = comments.map(c => `
-                <div class="bg-slate-900/80 p-3 rounded-xl border border-white/5 text-xs">
-                    <div class="font-bold text-blue-400 mb-1">${c.author}</div>
-                    <div class="text-gray-300">${c.text}</div>
-                </div>
-            `).join('');
-        }
-
-        function addComment() {
-            const input = document.getElementById('new-comment-input');
-            const text = input.value.trim();
-            if (!text || !currentActiveArticleId) return;
-
-            const art = articlesData.find(a => a.id === currentActiveArticleId);
-            if (art) {
-                art.comments.push({ author: 'Пользователь AK', text: text });
-                renderComments(art.comments);
-                input.value = '';
-                renderNewsFeed();
+                document.getElementById('site-tagline').innerText = 'Международная Геополитическая Аналитика';
+                document.getElementById('search-input').placeholder = 'Поиск аналитики...';
+                document.getElementById('widget-knesset-title').innerText = 'Кнессет 2026: Распределение Мандатов (120)';
+                document.getElementById('widget-market-title').innerText = 'Глобальные Индексы & Сырье';
+                document.getElementById('widget-calc-title').innerText = 'Конвертер Региональных Валют';
+                document.getElementById('section-heading').querySelector('span').innerText = 'Аналитические Материалы';
+                document.getElementById('footer-desc').innerText = 'Независимый геополитический портал, предоставляющий экспертный анализ международных событий, экономических тенденций и дипломатических процессов.';
             }
         }
 
-        // AI Audio Simulator
-        function toggleAIAudio() {
-            const btn = document.getElementById('ai-audio-btn');
-            const icon = document.getElementById('audio-icon');
-            const text = document.getElementById('audio-text');
-
-            if (!isAudioPlaying) {
-                isAudioPlaying = true;
-                icon.className = "fa-solid fa-circle-pause text-amber-400 animate-pulse";
-                text.textContent = "Воспроизведение...";
-                btn.className = "bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3 py-1 rounded-full flex items-center gap-2";
-            } else {
-                isAudioPlaying = false;
-                icon.className = "fa-solid fa-volume-high";
-                text.textContent = translations[currentLang].ai_listen;
-                btn.className = "bg-blue-600/20 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-full flex items-center gap-2";
-            }
-        }
-
-        // Knesset Poll Chart Render
-        function renderKnessetPolls() {
-            const container = document.getElementById('knesset-bars');
-            container.innerHTML = knessetPolls.map(item => `
-                <div>
-                    <div class="flex justify-between text-xs mb-1">
-                        <span class="text-gray-300 font-medium">${item.party}</span>
-                        <span class="font-bold text-white">${item.seats} <span class="text-[10px] text-gray-500">мест</span></span>
-                    </div>
-                    <div class="w-full h-2 bg-slate-900 rounded-full overflow-hidden border border-white/5">
-                        <div class="h-full ${item.color} rounded-full transition-all duration-1000" style="width: ${item.pct * 3}%"></div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Render Columnists
-        function renderAnalytics() {
-            const container = document.getElementById('analytics-list');
-            container.innerHTML = analyticsData.map(col => `
-                <div class="p-3 bg-slate-900/60 rounded-xl border border-white/5 hover:border-emerald-500/30 transition-all cursor-pointer" onclick="openArticle(1)">
-                    <div class="flex items-center gap-3 mb-2">
-                        <img src="${col.avatar}" alt="${col.author}" class="w-9 h-9 rounded-full object-cover border border-white/20">
-                        <div>
-                            <h4 class="text-xs font-bold text-white">${col.author}</h4>
-                            <p class="text-[10px] text-gray-400">${col.role}</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gray-200 font-medium leading-snug">${col.title}</p>
-                </div>
-            `).join('');
-        }
-
-        // Currency Converter Logic
-        function toggleConverterModal() {
-            const modal = document.getElementById('converter-modal');
-            modal.classList.toggle('hidden');
-        }
-
-        function calculateConversion() {
-            const amount = parseFloat(document.getElementById('calc-amount').value) || 0;
-            const from = document.getElementById('calc-from').value;
-            const to = document.getElementById('calc-to').value;
-
-            // Base rates relative to USD (14 Oct 2026)
-            const usdRates = {
-                USD: 1.0,
-                ILS: 3.65,
-                EUR: 0.915,
-                CNY: 7.12,
-                RUB: 96.20
-            };
-
-            const amountInUSD = amount / usdRates[from];
-            const result = amountInUSD * usdRates[to];
-
-            document.getElementById('calc-result').textContent = `${result.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${to}`;
-        }
-
-        // Miscellaneous Actions
-        function dismissBreaking() {
-            document.getElementById('breaking-news-banner').style.display = 'none';
-        }
-
-        function openKnessetDetails() {
-            alert('Полный методологический отчёт выборов 2026 года доступен по подписке АлефПортал Аналитика.');
-        }
-
-        function subscribeNewsletter(e) {
-            e.preventDefault();
-            alert('Спасибо за подписку! Молнии АлефПортала 2026 активированы.');
-        }
+        // Initialize on load
+        window.onload = function() {
+            renderUI();
+            updateClock();
+        };
     </script>
 </body>
 </html>
